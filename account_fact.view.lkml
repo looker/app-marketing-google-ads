@@ -61,6 +61,7 @@ view: account_date_fact {
   dimension: _date {
     hidden: yes
     type: date_raw
+    sql: CAST(${TABLE}._date AS DATE) ;;
   }
   set: detail {
     fields: [external_customer_id]
