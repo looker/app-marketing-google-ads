@@ -7,7 +7,7 @@ explore: ad_impressions {
   extends: [ad_impressions_adapter]
   from: ad_impressions
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions"
   view_label: "Impressions"
 }
@@ -21,7 +21,7 @@ explore: ad_impressions_hour {
   extends: [ad_impressions_hour_adapter, ]
   from: ad_impressions_hour
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Hour"
   view_label: "Impressions by Hour"
 }
@@ -35,7 +35,7 @@ explore: ad_impressions_campaign {
   extends: [ad_impressions_campaign_adapter]
   from: ad_impressions_campaign
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Campaign"
   view_label: "Impressions by Campaign"
 }
@@ -49,7 +49,7 @@ explore: ad_impressions_campaign_hour {
   extends: [ad_impressions_campaign_hour_adapter]
   from: ad_impressions_campaign_hour
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Campaign & Hour"
   view_label: "Impressions by Campaign & Hour"
 }
@@ -63,7 +63,7 @@ explore: ad_impressions_ad_group {
   extends: [ad_impressions_ad_group_adapter]
   from: ad_impressions_ad_group
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Ad Group"
   view_label: "Impressions by Ad Group"
 }
@@ -77,7 +77,7 @@ explore: ad_impressions_ad_group_hour {
   extends: [ad_impressions_ad_group_hour_adapter]
   from: ad_impressions_ad_group_hour
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Ad Group & Hour"
   view_label: "Impressions by Ad Group & Hour"
 }
@@ -91,7 +91,7 @@ explore: ad_impressions_keyword {
   extends: [ad_impressions_keyword_adapter]
   from: ad_impressions_keyword
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Keyword"
   view_label: "Impressions by Keyword"
 }
@@ -105,7 +105,7 @@ explore: ad_impressions_ad {
   extends: [ad_impressions_ad_adapter]
   from: ad_impressions_ad
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Ad"
   view_label: "Impressions by Ad"
 }
@@ -119,7 +119,7 @@ explore: ad_impressions_geo {
   extends: [ad_impressions_geo_adapter]
   from: ad_impressions_geo
   view_name: fact
-  group_label: "Google AdWords"
+  group_label: "Google Ads"
   label: "AdWord Impressions by Geo"
   view_label: "Impressions by Geo"
 }
@@ -156,4 +156,74 @@ view: ad_impressions_geo {
         {% else %} {{rendered_value}}
         {% endif %};;
   }
+}
+
+explore: ad_impressions_age_range {
+  persist_with: adwords_etl_datagroup
+  extends: [ad_impressions_age_range_adapter]
+  from: ad_impressions_age_range
+  view_name: fact
+  group_label: "Google Ads"
+  label: "AdWord Impressions by Age Range"
+  view_label: "Impressions by Age Range"
+}
+
+view: ad_impressions_age_range {
+  extends: [ad_impressions_base, ad_impressions_age_range_adapter]
+}
+
+explore: ad_impressions_gender {
+  persist_with: adwords_etl_datagroup
+  extends: [ad_impressions_gender_adapter]
+  from: ad_impressions_gender
+  view_name: fact
+  group_label: "Google Ads"
+  label: "AdWord Impressions by Gender"
+  view_label: "Impressions by Gender"
+}
+
+view: ad_impressions_gender {
+  extends: [ad_impressions_base, ad_impressions_gender_adapter]
+}
+
+explore: ad_impressions_audience {
+  persist_with: adwords_etl_datagroup
+  extends: [ad_impressions_audience_adapter]
+  from: ad_impressions_audience
+  view_name: fact
+  group_label: "Google Ads"
+  label: "AdWord Impressions by Audience"
+  view_label: "Impressions by Audience"
+}
+
+view: ad_impressions_audience {
+  extends: [ad_impressions_base, ad_impressions_audience_adapter]
+}
+
+explore: ad_impressions_parental_status {
+  persist_with: adwords_etl_datagroup
+  extends: [ad_impressions_parental_status_adapter]
+  from: ad_impressions_parental_status
+  view_name: fact
+  group_label: "Google Ads"
+  label: "AdWord Impressions by Parental Status"
+  view_label: "Impressions by Parental Status"
+}
+
+view: ad_impressions_parental_status {
+  extends: [ad_impressions_base, ad_impressions_parental_status_adapter]
+}
+
+explore: ad_impressions_video {
+  persist_with: adwords_etl_datagroup
+  extends: [ad_impressions_video_adapter]
+  from: ad_impressions_video
+  view_name: fact
+  group_label: "Google Ads"
+  label: "AdWord Impressions by Video"
+  view_label: "Impressions by Video"
+}
+
+view: ad_impressions_video {
+  extends: [ad_impressions_base, ad_impressions_video_adapter]
 }
