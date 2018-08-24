@@ -64,6 +64,7 @@ view: period_fact {
   }
   dimension: _date {
     type: date_raw
+    sql: CAST(${TABLE}._date AS DATE) ;;
   }
 
   sql_table_name:
