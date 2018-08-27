@@ -3,7 +3,7 @@ include: "recent_changes.view"
 
 explore: keyword_date_fact {
   persist_with: adwords_etl_datagroup
-  extends: [ad_group_date_fact]
+  extends: [ad_group_date_fact, keyword_join]
   from: keyword_date_fact
   view_name: fact
   label: "Keyword This Period"
@@ -27,16 +27,6 @@ explore: keyword_date_fact {
       ${fact.ad_group_id} = ${parent_fact.ad_group_id} AND
       ${fact.date_date} = ${parent_fact.date_date} ;;
     relationship: one_to_one
-  }
-  join: keyword {
-    from: keyword_adapter
-    view_label: "Keyword"
-    sql_on: ${fact.external_customer_id} = ${keyword.external_customer_id} AND
-      ${fact.campaign_id} = ${keyword.campaign_id} AND
-      ${fact.ad_group_id} = ${keyword.ad_group_id} AND
-      ${fact.criterion_id} = ${keyword.criterion_id} AND
-      ${fact._date} = ${keyword._date} ;;
-    relationship: many_to_one
   }
   join: status_changes {
     view_label: "Keywords"

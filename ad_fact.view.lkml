@@ -3,7 +3,7 @@ include: "recent_changes.view"
 
 explore: ad_date_fact {
   persist_with: adwords_etl_datagroup
-  extends: [ad_group_date_fact]
+  extends: [ad_group_date_fact, ad_join]
   from: ad_date_fact
   view_name: fact
   label: "Ad This Period"
@@ -26,16 +26,6 @@ explore: ad_date_fact {
       ${fact.campaign_id} = ${parent_fact.campaign_id} AND
       ${fact.ad_group_id} = ${parent_fact.ad_group_id} AND
       ${fact.date_date} = ${parent_fact.date_date} ;;
-    relationship: many_to_one
-  }
-  join: ad {
-    from: ad_adapter
-    view_label: "Ad"
-    sql_on: ${fact.external_customer_id} = ${ad.external_customer_id} AND
-      ${fact.campaign_id} = ${ad.campaign_id} AND
-      ${fact.ad_group_id} = ${ad.ad_group_id} AND
-      ${fact.creative_id} = ${ad.creative_id} AND
-      ${fact._date} = ${ad._date}  ;;
     relationship: many_to_one
   }
   join: status_changes {
