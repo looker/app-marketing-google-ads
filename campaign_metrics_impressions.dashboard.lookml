@@ -1,168 +1,9 @@
-- dashboard: campaign_metrics_clicks
+- dashboard: campaign_metrics__impressions
+  title: Campaign Metrics - Impressions
   extends: campaign_metrics_base
-  title: Campaign Metrics - Clicks
-  layout: newspaper
   elements:
-  - title: Clicks by Device
-    name: Clicks by Device
-    model: marketing_analytics
-    explore: ad_impressions_ad_group
-    type: looker_bar
-    fields:
-    - fact.device_type
-    - fact.total_clicks
-    filters:
-      fact.total_clicks: ">0"
-    limit: 500
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    label_color: []
-    x_axis_label: Device
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Ad Stats Cost
-        axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 196
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 184
-    colors:
-    - "#d06180"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    listen:
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 10
-    col: 0
-    width: 8
-    height: 4
-  - title: Clicks by Bid Strategy
-    name: Clicks by Bid Strategy
-    model: marketing_analytics
-    explore: ad_impressions_keyword
-    type: looker_bar
-    fields:
-    - keyword.bidding_strategy_type
-    - fact.total_clicks
-    filters:
-      fact.total_clicks: ">0"
-    sorts:
-    - fact.total_clicks desc
-    limit: 500
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    label_color: []
-    x_axis_label: Bid Strategy
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Ad Stats Cost
-        axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 276
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 264
-    colors:
-    - "#dc9d4f"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#d06180"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    listen:
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 14
-    col: 0
-    width: 8
-    height: 4
-  - title: Clicks To Date
-    name: Clicks To Date
+  - title: Impressions To Date
+    name: Impressions To Date
     model: marketing_analytics
     explore: period_fact
     type: looker_column
@@ -174,6 +15,7 @@
     - fact.average_cost_per_click
     - fact.average_click_rate
     - fact.total_clicks
+    - fact.total_impressions
     sorts:
     - fact.date_period_dynamic_grain
     limit: 500
@@ -211,12 +53,14 @@
       fact.average_click_rate: line
       fact.average_cost_per_click: line
       fact.total_clicks: line
+      fact.total_impressions: line
     limit_displayed_rows: false
     hidden_series:
     - fact.total_conversions
     - fact.average_cost_per_conversion
     - fact.average_conversion_rate
     - fact.average_cost_per_click
+    - fact.average_click_rate
     y_axes:
     - label:
       orientation: left
@@ -224,6 +68,8 @@
       - id: fact.average_cost_per_conversion
         name: Cost Per Conversion
         axisId: fact.average_cost_per_conversion
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 224
       showLabels: true
       showValues: true
       maxValue:
@@ -233,48 +79,66 @@
       tickDensity: default
       tickDensityCustom:
       type: linear
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 221
     - label: ''
       orientation: left
       series:
       - id: fact.total_conversions
         name: Conversions
         axisId: fact.total_conversions
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 239
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 236
     - label: ''
       orientation: left
       series:
       - id: fact.average_conversion_rate
         name: Conversion Rate
         axisId: fact.average_conversion_rate
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 250
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 247
     - label: ''
       orientation: left
       series:
       - id: fact.average_click_rate
         name: Click Through Rate
         axisId: fact.average_click_rate
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 261
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 258
     - label:
       orientation: right
       series:
       - id: fact.average_cost_per_click
         name: Cost per Click
         axisId: fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 272
       - id: fact.total_clicks
         name: Clicks
         axisId: fact.total_clicks
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 275
       showLabels: true
       showValues: true
       maxValue:
@@ -284,6 +148,8 @@
       tickDensity: default
       tickDensityCustom:
       type: linear
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 269
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -335,16 +201,172 @@
     col: 0
     width: 24
     height: 10
-  - title: Clicks by Network
-    name: Clicks by Network
+  - title: Impressions by Device
+    name: Impressions by Device
+    model: marketing_analytics
+    explore: ad_impressions_ad_group
+    type: looker_bar
+    fields:
+    - fact.device_type
+    - fact.total_impressions
+    filters:
+      fact.total_cost: ">0"
+    limit: 500
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    label_color: []
+    x_axis_label: Device
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: bottom
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: fact.average_cost_per_click
+        name: Ad Stats Cost
+        axisId: fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 55
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 43
+    colors:
+    - "#d06180"
+    - "#7869df"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea9895"
+    - "#f1e582"
+    series_colors: {}
+    listen:
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 10
+    col: 0
+    width: 8
+    height: 4
+  - title: Impressions by Bid Strategy
+    name: Impressions by Bid Strategy
+    model: marketing_analytics
+    explore: ad_impressions_keyword
+    type: looker_bar
+    fields:
+    - keyword.bidding_strategy_type
+    - fact.total_impressions
+    filters:
+      fact.total_impressions: ">0"
+    limit: 500
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    label_color: []
+    x_axis_label: Bid Strategy
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: bottom
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: fact.average_cost_per_click
+        name: Ad Stats Cost
+        axisId: fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 135
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 123
+    colors:
+    - "#dc9d4f"
+    - "#7869df"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#d06180"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea9895"
+    - "#f1e582"
+    series_colors: {}
+    listen:
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 14
+    col: 0
+    width: 8
+    height: 4
+  - title: Impressions by Network
+    name: Impressions by Network
     model: marketing_analytics
     explore: ad_impressions_ad_group
     type: looker_bar
     fields:
     - fact.ad_network_type
-    - fact.total_clicks
+    - fact.total_impressions
     filters:
-      fact.total_clicks: ">0"
+      fact.total_impressions: ">0"
     sorts:
     - fact.ad_network_type
     limit: 500
@@ -389,10 +411,10 @@
       - id: fact.average_cost_per_click
         name: Ad Stats Cost
         axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 724
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 712
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 389
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 377
     colors:
     - "#8ac8ca"
     - "#7869df"
@@ -415,15 +437,67 @@
     col: 0
     width: 8
     height: 4
-  - title: Clicks by Day of Week and Hour of Day
-    name: Clicks by Day of Week and Hour of Day
+  - title: Impressions By State
+    name: Impressions By State
+    model: marketing_analytics
+    explore: ad_impressions_geo
+    type: looker_map
+    fields:
+    - geo_us_state.state
+    - fact.total_impressions
+    filters:
+      fact.period: 28 day
+    limit: 500
+    map_plot_mode: points
+    heatmap_gridlines: false
+    heatmap_gridlines_empty: false
+    heatmap_opacity: 0.5
+    show_region_field: true
+    draw_map_labels_above_data: true
+    map_tile_provider: positron
+    map_position: custom
+    map_scale_indicator: 'off'
+    map_pannable: true
+    map_zoomable: true
+    map_marker_type: circle
+    map_marker_icon_name: default
+    map_marker_radius_mode: proportional_value
+    map_marker_units: meters
+    map_marker_proportional_scale_type: linear
+    map_marker_color_mode: fixed
+    show_view_names: true
+    show_legend: true
+    quantize_map_value_colors: false
+    reverse_map_value_colors: false
+    map: usa
+    map_projection: ''
+    quantize_colors: false
+    query_timezone: America/Los_Angeles
+    series_types: {}
+    map_latitude: 39.842286020743394
+    map_longitude: -96.45996093750001
+    map_zoom: 4
+    colors:
+    - "#F36254"
+    - "#FCF758"
+    - "#4FBC89"
+    listen:
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period Latest: fact.date_period_latest
+    row: 10
+    col: 8
+    width: 16
+    height: 12
+  - title: Impressions by Day of Week and Hour of Day
+    name: Impressions by Day of Week and Hour of Day
     model: marketing_analytics
     explore: ad_impressions_ad_group_hour
     type: table
     fields:
     - fact.hour_of_day
     - fact.date_day_of_week
-    - fact.total_clicks
+    - fact.total_impressions
     pivots:
     - fact.date_day_of_week
     fill_fields:
@@ -457,9 +531,9 @@
       italic: false
       strikethrough: false
       fields:
-      - fact.total_clicks
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 642
+      - fact.total_impressions
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 446
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     leftAxisLabelVisible: false
@@ -519,10 +593,10 @@
       - id: fact.average_cost_per_click
         name: Ad Stats Cost
         axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 634
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 622
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 519
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 507
     listen:
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
@@ -532,66 +606,14 @@
     col: 0
     width: 14
     height: 14
-  - title: Clicks By State
-    name: Clicks By State
-    model: marketing_analytics
-    explore: ad_impressions_geo
-    type: looker_map
-    fields:
-    - geo_us_state.state
-    - fact.total_clicks
-    filters:
-      fact.period: 28 day
-    limit: 500
-    map_plot_mode: points
-    heatmap_gridlines: false
-    heatmap_gridlines_empty: false
-    heatmap_opacity: 0.5
-    show_region_field: true
-    draw_map_labels_above_data: true
-    map_tile_provider: positron
-    map_position: custom
-    map_scale_indicator: 'off'
-    map_pannable: true
-    map_zoomable: true
-    map_marker_type: circle
-    map_marker_icon_name: default
-    map_marker_radius_mode: proportional_value
-    map_marker_units: meters
-    map_marker_proportional_scale_type: linear
-    map_marker_color_mode: fixed
-    show_view_names: true
-    show_legend: true
-    quantize_map_value_colors: false
-    reverse_map_value_colors: false
-    map: usa
-    map_projection: ''
-    quantize_colors: false
-    query_timezone: America/Los_Angeles
-    series_types: {}
-    map_latitude: 39.842286020743394
-    map_longitude: -96.45996093750001
-    map_zoom: 4
-    colors:
-    - "#F36254"
-    - "#FCF758"
-    - "#4FBC89"
-    listen:
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period Latest: fact.date_period_latest
-    row: 10
-    col: 8
-    width: 16
-    height: 12
-  - title: Clicks by Day of Week
-    name: Clicks by Day of Week
+  - title: Impressions by Day of Week
+    name: Impressions by Day of Week
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
     fields:
     - fact.date_day_of_week
-    - fact.total_clicks
+    - fact.total_impressions
     fill_fields:
     - fact.date_day_of_week
     sorts:
@@ -664,10 +686,10 @@
       - id: fact.average_cost_per_click
         name: Ad Stats Cost
         axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 382
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 370
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 664
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 652
     conditional_formatting:
     - type: high to low
       value:
@@ -679,14 +701,14 @@
         - "#F36254"
         - "#FCF758"
         - "#4FBC89"
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 395
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 677
       bold: false
       italic: false
       strikethrough: false
       fields:
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 390
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 672
     colors:
     - "#8ac8ca"
     - "#7869df"
@@ -709,333 +731,14 @@
     col: 14
     width: 10
     height: 7
-  - title: Ad Group Clicks Change
-    name: Ad Group Clicks Change
-    model: marketing_analytics
-    explore: period_fact
-    type: looker_bar
-    fields:
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.average_cost_per_click
-    - fact.total_cost
-    - last_fact.total_cost
-    - last_fact.total_clicks
-    - fact.total_clicks
-    - last_fact.clicks_percent_change_abs
-    sorts:
-    - last_fact.clicks_percent_change_abs desc
-    limit: 500
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: true
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    hidden_fields:
-    - campaign.name
-    - fact.total_cost
-    - last_fact.total_cost
-    - last_fact.clicks_percent_change_abs
-    - fact.average_cost_per_click
-    limit_displayed_rows_values:
-      show_hide: show
-      first_last: first
-      num_rows: '10'
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Period Fact
-        axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 819
-      - id: last_fact.average_cost_per_click
-        name: Last Period Fact
-        axisId: last_fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 824
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 807
-    series_colors: {}
-    colors:
-    - "#a6b7ff"
-    - "#7869df"
-    - "#ea9895"
-    - "#d06180"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 36
-    col: 0
-    width: 8
-    height: 10
-  - title: Keyword Clicks Change
-    name: Keyword Clicks Change
-    model: marketing_analytics
-    explore: period_fact
-    type: looker_bar
-    fields:
-    - keyword.criteria
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.total_cost
-    - last_fact.total_cost
-    - last_fact.total_clicks
-    - fact.total_clicks
-    - fact.clicks_percent_change_abs
-    sorts:
-    - fact.clicks_percent_change_abs desc
-    limit: 500
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: true
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    hidden_fields:
-    - campaign.name
-    - ad_group.ad_group_name
-    - fact.total_cost
-    - last_fact.total_cost
-    - fact.clicks_percent_change_abs
-    limit_displayed_rows_values:
-      show_hide: show
-      first_last: first
-      num_rows: '10'
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Period Fact
-        axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 924
-      - id: last_fact.average_cost_per_click
-        name: Last Period Fact
-        axisId: last_fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 929
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 912
-    series_colors: {}
-    colors:
-    - "#ea9895"
-    - "#d06180"
-    - "#a6b7ff"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 36
-    col: 8
-    width: 8
-    height: 10
-  - title: Ad Clicks Change
-    name: Ad Clicks Change
-    model: marketing_analytics
-    explore: period_fact
-    type: looker_bar
-    fields:
-    - ad.creative
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.total_cost
-    - last_fact.total_cost
-    - last_fact.total_clicks
-    - fact.total_clicks
-    - fact.clicks_percent_change_abs
-    sorts:
-    - fact.clicks_percent_change_abs desc
-    limit: 50
-    column_limit: 50
-    stacking: ''
-    colors:
-    - "#dc9d4f"
-    - "#dc9d4f"
-    - "#ea9895"
-    - "#d06180"
-    - "#a6b7ff"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    point_style: none
-    series_colors:
-      fact.cost_per_conversion_last_month: "#f1cc9a"
-      last_fact.average_cost_per_click: "#f1cc9a"
-      last_fact.total_clicks: "#f1cc9a"
-    series_types: {}
-    limit_displayed_rows: true
-    limit_displayed_rows_values:
-      show_hide: show
-      first_last: first
-      num_rows: '10'
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Period Fact
-        axisId: fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 1056
-      - id: last_fact.average_cost_per_click
-        name: Last Period Fact
-        axisId: last_fact.average_cost_per_click
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 1061
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 1044
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    query_timezone: America/Los_Angeles
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields:
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.total_cost
-    - last_fact.total_cost
-    - fact.clicks_percent_change_abs
-    listen:
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 36
-    col: 16
-    width: 8
-    height: 10
-  - title: Clicks by Hour of Day
-    name: Clicks by Hour of Day
+  - title: Impressions by Hour of Day
+    name: Impressions by Hour of Day
     model: marketing_analytics
     explore: ad_impressions_ad_group_hour
     type: looker_column
     fields:
     - fact.hour_of_day
-    - fact.total_clicks
+    - fact.total_impressions
     sorts:
     - fact.hour_of_day
     limit: 500
@@ -1070,11 +773,15 @@
       - id: fact.total_clicks
         name: Clicks
         axisId: fact.total_clicks
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 1070
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 1067
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -1130,14 +837,14 @@
         - "#F36254"
         - "#FCF758"
         - "#4FBC89"
-        __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-        __LINE_NUM: 518
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 1128
       bold: false
       italic: false
       strikethrough: false
       fields:
-      __FILE: 3d4d8a33c661890929b121b4e924d1172e6c6c210a2744f2759c85606ed88ed4d2cee3a4/campaign_metrics_cpc.dashboard.lookml
-      __LINE_NUM: 513
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 1123
     listen:
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
@@ -1147,6 +854,326 @@
     col: 14
     width: 10
     height: 7
+  - title: Ad Group Impressions Change
+    name: Ad Group Impressions Change
+    model: marketing_analytics
+    explore: period_fact
+    type: looker_bar
+    fields:
+    - ad_group.ad_group_name
+    - campaign.name
+    - fact.average_cost_per_click
+    - fact.total_cost
+    - last_fact.total_cost
+    - last_fact.total_impressions
+    - fact.total_impressions
+    - last_fact.impressions_percent_change_abs
+    sorts:
+    - last_fact.impressions_percent_change_abs desc
+    limit: 500
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    limit_displayed_rows: true
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    hidden_fields:
+    - campaign.name
+    - fact.total_cost
+    - last_fact.total_cost
+    - fact.average_cost_per_click
+    - last_fact.impressions_percent_change_abs
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: bottom
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: fact.average_cost_per_click
+        name: Period Fact
+        axisId: fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 776
+      - id: last_fact.average_cost_per_click
+        name: Last Period Fact
+        axisId: last_fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 781
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 764
+    series_colors: {}
+    colors:
+    - "#a6b7ff"
+    - "#7869df"
+    - "#ea9895"
+    - "#d06180"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    x_axis_reversed: false
+    y_axis_reversed: false
+    listen:
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 36
+    col: 0
+    width: 8
+    height: 10
+  - title: Keyword Impressions Change
+    name: Keyword Impressions Change
+    model: marketing_analytics
+    explore: period_fact
+    type: looker_bar
+    fields:
+    - keyword.criteria
+    - ad_group.ad_group_name
+    - campaign.name
+    - fact.total_cost
+    - last_fact.total_cost
+    - last_fact.total_impressions
+    - fact.total_impressions
+    - last_fact.impressions_percent_change_abs
+    sorts:
+    - last_fact.impressions_percent_change_abs desc
+    limit: 500
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    limit_displayed_rows: true
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    hidden_fields:
+    - campaign.name
+    - ad_group.ad_group_name
+    - fact.total_cost
+    - last_fact.total_cost
+    - last_fact.impressions_percent_change_abs
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: bottom
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: fact.average_cost_per_click
+        name: Period Fact
+        axisId: fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 877
+      - id: last_fact.average_cost_per_click
+        name: Last Period Fact
+        axisId: last_fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 882
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 865
+    series_colors: {}
+    colors:
+    - "#ea9895"
+    - "#d06180"
+    - "#a6b7ff"
+    - "#7869df"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    x_axis_reversed: false
+    y_axis_reversed: false
+    listen:
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 36
+    col: 8
+    width: 8
+    height: 10
+  - title: Ad Impressions Change
+    name: Ad Impressions Change
+    model: marketing_analytics
+    explore: period_fact
+    type: looker_bar
+    fields:
+    - ad.creative
+    - ad_group.ad_group_name
+    - campaign.name
+    - fact.total_cost
+    - last_fact.total_cost
+    - last_fact.impressions_percent_change_abs
+    - last_fact.total_impressions
+    - fact.total_impressions
+    sorts:
+    - last_fact.impressions_percent_change_abs desc
+    limit: 50
+    column_limit: 50
+    stacking: ''
+    colors:
+    - "#dc9d4f"
+    - "#dc9d4f"
+    - "#ea9895"
+    - "#d06180"
+    - "#a6b7ff"
+    - "#7869df"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    point_style: none
+    series_colors:
+      fact.cost_per_conversion_last_month: "#f1cc9a"
+      last_fact.average_cost_per_click: "#f1cc9a"
+      last_fact.total_clicks: "#f1cc9a"
+      last_fact.total_impressions: "#f1cc9a"
+    series_types: {}
+    limit_displayed_rows: true
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: bottom
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: fact.average_cost_per_click
+        name: Period Fact
+        axisId: fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 978
+      - id: last_fact.average_cost_per_click
+        name: Last Period Fact
+        axisId: last_fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+        __LINE_NUM: 983
+      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
+      __LINE_NUM: 966
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    query_timezone: America/Los_Angeles
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_fields:
+    - ad_group.ad_group_name
+    - campaign.name
+    - fact.total_cost
+    - last_fact.total_cost
+    - last_fact.impressions_percent_change_abs
+    listen:
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 36
+    col: 16
+    width: 8
+    height: 10
   filters:
   - name: Campaign
     title: Campaign
