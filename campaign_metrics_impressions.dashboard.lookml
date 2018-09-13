@@ -867,9 +867,9 @@
     - last_fact.total_cost
     - last_fact.total_impressions
     - fact.total_impressions
-    - last_fact.impressions_percent_change_abs
+    - last_fact.impressions_period_percent_change_abs
     sorts:
-    - last_fact.impressions_percent_change_abs desc
+    - last_fact.impressions_period_percent_change_abs desc
     limit: 500
     column_limit: 50
     stacking: ''
@@ -900,7 +900,7 @@
     - fact.total_cost
     - last_fact.total_cost
     - fact.average_cost_per_click
-    - last_fact.impressions_percent_change_abs
+    - last_fact.impressions_period_percent_change_abs
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -968,9 +968,9 @@
     - last_fact.total_cost
     - last_fact.total_impressions
     - fact.total_impressions
-    - last_fact.impressions_percent_change_abs
+    - last_fact.impressions_period_percent_change_abs
     sorts:
-    - last_fact.impressions_percent_change_abs desc
+    - last_fact.impressions_period_percent_change_abs desc
     limit: 500
     column_limit: 50
     stacking: ''
@@ -1001,7 +1001,7 @@
     - ad_group.ad_group_name
     - fact.total_cost
     - last_fact.total_cost
-    - last_fact.impressions_percent_change_abs
+    - last_fact.impressions_period_percent_change_abs
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -1067,11 +1067,11 @@
     - campaign.name
     - fact.total_cost
     - last_fact.total_cost
-    - last_fact.impressions_percent_change_abs
+    - last_fact.impressions_period_percent_change_abs
     - last_fact.total_impressions
     - fact.total_impressions
     sorts:
-    - last_fact.impressions_percent_change_abs desc
+    - last_fact.impressions_period_percent_change_abs desc
     limit: 50
     column_limit: 50
     stacking: ''
@@ -1164,7 +1164,7 @@
     - campaign.name
     - fact.total_cost
     - last_fact.total_cost
-    - last_fact.impressions_percent_change_abs
+    - last_fact.impressions_period_percent_change_abs
     listen:
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
