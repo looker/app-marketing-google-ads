@@ -1,5 +1,5 @@
 - dashboard: campaign_metrics_click_through_rate
-  extends: campaign_metrics_base
+  extends: google_ads_base
   title: Campaign Metrics - Click Through Rate
   elements:
   - title: Click Through Rate To Date
@@ -128,6 +128,7 @@
     column_group_spacing_ratio: 0
     column_spacing_ratio: 0
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -208,6 +209,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -331,6 +333,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -412,6 +415,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -537,6 +541,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -617,6 +622,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -736,6 +742,7 @@
     series_labels:
       fact.average_click_rate: "-"
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -850,6 +857,7 @@
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -962,6 +970,7 @@
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -1019,51 +1028,12 @@
     - "#FCF758"
     - "#4FBC89"
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
+      Period: fact.period
       Period Latest: fact.date_period_latest
     row: 10
     col: 9
     width: 15
     height: 12
-  filters:
-  - name: Campaign
-    title: Campaign
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: campaign.name
-  - name: Ad Group
-    title: Ad Group
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: ad_group.ad_group_name
-  - name: Period
-    title: Period
-    type: field_filter
-    default_value: 28 day
-    allow_multiple_values: true
-    required: true
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: fact.period
-  - name: Period Latest
-    title: Period Latest
-    type: field_filter
-    default_value: 'Yes'
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: fact.date_period_latest

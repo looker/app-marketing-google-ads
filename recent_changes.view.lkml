@@ -5,7 +5,7 @@ explore: ad_status {
 view: ad_status {
   derived_table: {
     datagroup_trigger: adwords_etl_datagroup
-    explore_source: ad_adapter {
+    explore_source: ad {
       column: _date { field: ad._date }
       column: external_customer_id { field: ad.external_customer_id }
       column: campaign_id { field: ad.campaign_id }
@@ -37,7 +37,7 @@ explore: keyword_status {
 view: keyword_status {
   derived_table: {
     datagroup_trigger: adwords_etl_datagroup
-    explore_source: keyword_adapter {
+    explore_source: keyword {
       column: _date { field: keyword._date }
       column: external_customer_id { field: keyword.external_customer_id }
       column: campaign_id { field: keyword.campaign_id }
@@ -69,7 +69,7 @@ explore: ad_group_status {
 view: ad_group_status {
   derived_table: {
     datagroup_trigger: adwords_etl_datagroup
-    explore_source: ad_group_adapter {
+    explore_source: ad_group {
       column: _date { field: ad_group._date }
       column: external_customer_id { field: ad_group.external_customer_id }
       column: campaign_id { field: ad_group.campaign_id }
@@ -99,7 +99,7 @@ explore: campaign_status {
 view: campaign_status {
   derived_table: {
     datagroup_trigger: adwords_etl_datagroup
-    explore_source: campaign_adapter {
+    explore_source: campaign {
       column: _date { field: campaign._date }
       column: external_customer_id { field: campaign.external_customer_id }
       column: campaign_id { field: campaign.campaign_id }
@@ -126,40 +126,52 @@ explore: status_changes  {
   from: status_changes
   view_name: fact
 
+  join: customer {
+    from: customer
+    view_label: "Customer"
+    sql_on: ${fact.external_customer_id} = ${customer.external_customer_id} AND
+      ${fact._date} = ${customer._date} ;;
+    relationship: many_to_one
+  }
+
   join: campaign {
-    from: campaign_adapter
+    from: campaign
     view_label: "Campaigns"
     sql_on: ${fact.campaign_id} = ${campaign.campaign_id} AND
-      ${fact.external_customer_id} = ${campaign.external_customer_id};;
+      ${fact.external_customer_id} = ${campaign.external_customer_id} AND
+      ${fact._date} = ${campaign._date} ;;
     relationship: many_to_one
   }
 
   join: ad_group {
-    from: ad_group_adapter
+    from: ad_group
     view_label: "Ad Groups"
     sql_on: ${fact.ad_group_id} = ${ad_group.ad_group_id} AND
       ${fact.campaign_id} = ${ad_group.campaign_id} AND
-      ${fact.external_customer_id} = ${ad_group.external_customer_id};;
+      ${fact.external_customer_id} = ${ad_group.external_customer_id} AND
+      ${fact._date} = ${ad_group._date} ;;
     relationship: many_to_one
   }
 
   join: ad {
-    from: ad_adapter
+    from: ad
     view_label: "Ads"
     sql_on: ${fact.creative_id} = ${ad.creative_id} AND
       ${fact.ad_group_id} = ${ad.ad_group_id} AND
       ${fact.campaign_id} = ${ad.campaign_id} AND
-      ${fact.external_customer_id} = ${ad.external_customer_id};;
+      ${fact.external_customer_id} = ${ad.external_customer_id} AND
+      ${fact._date} = ${ad._date} ;;
     relationship:  many_to_one
   }
 
   join: keyword {
-    from: keyword_adapter
+    from: keyword
     view_label: "Keywords"
     sql_on: ${fact.criterion_id} = ${keyword.criterion_id} AND
       ${fact.ad_group_id} = ${keyword.ad_group_id} AND
       ${fact.campaign_id} = ${keyword.campaign_id} AND
-      ${fact.external_customer_id} = ${keyword.external_customer_id} ;;
+      ${fact.external_customer_id} = ${keyword.external_customer_id} AND
+      ${fact._date} = ${keyword._date} ;;
     relationship: many_to_one
   }
 

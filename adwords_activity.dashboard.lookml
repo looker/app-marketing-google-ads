@@ -1,13 +1,6 @@
 - dashboard: adwords_activity
+  extends: google_ads_base
   title: Change History
-  layout: newspaper
-  embed_style:
-    background_color: "#ffffff"
-    show_title: true
-    title_color: "#3a4245"
-    show_filters_bar: false
-    tile_text_color: "#3a4245"
-    text_tile_text_color: ''
   elements:
   - title: Ad Group Changes
     name: Ad Group Changes
@@ -60,6 +53,9 @@
     totals_color: "#808080"
     series_types: {}
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 0
@@ -117,6 +113,9 @@
     totals_color: "#808080"
     series_types: {}
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 4
@@ -215,6 +214,9 @@
       __FILE: app_marketing_analytics/adwords_activity.dashboard.lookml
       __LINE_NUM: 126
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 0
@@ -272,6 +274,9 @@
     totals_color: "#808080"
     series_types: {}
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 9
@@ -355,6 +360,9 @@
       __FILE: app_marketing_analytics/adwords_activity.dashboard.lookml
       __LINE_NUM: 338
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 9
@@ -436,6 +444,9 @@
       __FILE: app_marketing_analytics/adwords_activity.dashboard.lookml
       __LINE_NUM: 582
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 14
@@ -493,6 +504,9 @@
     totals_color: "#808080"
     series_types: {}
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 14
@@ -599,6 +613,9 @@
       __FILE: app_marketing_analytics/adwords_activity.dashboard.lookml
       __LINE_NUM: 429
     listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 19
@@ -606,23 +623,13 @@
     width: 24
     height: 13
   filters:
-  - name: Period
-    title: Period
-    type: field_filter
-    default_value: 28 day
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: status_changes
-    listens_to_filters: []
-    field: fact.period
-  - name: Period Latest
-    title: Period Latest
-    type: field_filter
-    default_value: 'Yes'
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: status_changes
-    listens_to_filters: []
-    field: fact.date_period_latest
+    - name: Account
+      explore: status_changes
+    - name: Campaign
+      explore: status_changes
+    - name: Ad Group
+      explore: status_changes
+    - name: Period
+      explore: status_changes
+    - name: Period Latest
+      explore: status_changes

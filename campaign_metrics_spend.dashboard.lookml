@@ -1,5 +1,5 @@
 - dashboard: campaign_metrics_spend
-  extends: campaign_metrics_base
+  extends: google_ads_base
   title: Campaign Metrics - Spend
   elements:
   - title: Spend To Date
@@ -103,6 +103,7 @@
     column_group_spacing_ratio: 0
     column_spacing_ratio: 0
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -219,7 +220,9 @@
       __FILE: app_marketing_analytics/campaign_metrics_spend.dashboard.lookml
       __LINE_NUM: 177
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 0
@@ -378,6 +381,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -459,6 +463,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -584,6 +589,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -705,6 +711,7 @@
       fact.total_cost: "-"
       fact.date_day_of_week: Day of Week
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -828,6 +835,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -924,6 +932,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -1019,6 +1028,7 @@
       __FILE: app_marketing_analytics/campaign_metrics_spend.dashboard.lookml
       __LINE_NUM: 1052
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -1114,6 +1124,7 @@
       __FILE: app_marketing_analytics/campaign_metrics_spend.dashboard.lookml
       __LINE_NUM: 1147
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -1122,44 +1133,3 @@
     col: 0
     width: 12
     height: 7
-  filters:
-  - name: Campaign
-    title: Campaign
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: campaign.name
-  - name: Ad Group
-    title: Ad Group
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: ad_group.ad_group_name
-  - name: Period
-    title: Period
-    type: field_filter
-    default_value: 28 day
-    allow_multiple_values: true
-    required: true
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: fact.period
-  - name: Period Latest
-    title: Period Latest
-    type: field_filter
-    default_value: 'Yes'
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: fact.date_period_latest

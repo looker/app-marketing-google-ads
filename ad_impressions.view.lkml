@@ -1,8 +1,10 @@
 view: ad_impressions_base {
+  extension: required
   extends: [date_base, period_base, google_ad_metrics_base]
 }
 
-explore: ad_impressions {
+explore: ad_impressions_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_adapter]
   from: ad_impressions
@@ -12,11 +14,13 @@ explore: ad_impressions {
   view_label: "Impressions"
 }
 
-view: ad_impressions {
+view: ad_impressions_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_adapter]
 }
 
-explore: ad_impressions_hour {
+explore: ad_impressions_hour_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_hour_adapter, ]
   from: ad_impressions_hour
@@ -26,11 +30,13 @@ explore: ad_impressions_hour {
   view_label: "Impressions by Hour"
 }
 
-view: ad_impressions_hour {
+view: ad_impressions_hour_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_hour_adapter]
 }
 
-explore: ad_impressions_campaign {
+explore: ad_impressions_campaign_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_campaign_adapter]
   from: ad_impressions_campaign
@@ -40,11 +46,13 @@ explore: ad_impressions_campaign {
   view_label: "Impressions by Campaign"
 }
 
-view: ad_impressions_campaign {
+view: ad_impressions_campaign_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_campaign_adapter]
 }
 
-explore: ad_impressions_campaign_hour {
+explore: ad_impressions_campaign_hour_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_campaign_hour_adapter]
   from: ad_impressions_campaign_hour
@@ -54,11 +62,13 @@ explore: ad_impressions_campaign_hour {
   view_label: "Impressions by Campaign & Hour"
 }
 
-view: ad_impressions_campaign_hour {
+view: ad_impressions_campaign_hour_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_campaign_hour_adapter]
 }
 
-explore: ad_impressions_ad_group {
+explore: ad_impressions_ad_group_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_ad_group_adapter]
   from: ad_impressions_ad_group
@@ -68,11 +78,13 @@ explore: ad_impressions_ad_group {
   view_label: "Impressions by Ad Group"
 }
 
-view: ad_impressions_ad_group {
+view: ad_impressions_ad_group_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_ad_group_adapter]
 }
 
-explore: ad_impressions_ad_group_hour {
+explore: ad_impressions_ad_group_hour_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_ad_group_hour_adapter]
   from: ad_impressions_ad_group_hour
@@ -82,11 +94,13 @@ explore: ad_impressions_ad_group_hour {
   view_label: "Impressions by Ad Group & Hour"
 }
 
-view: ad_impressions_ad_group_hour {
+view: ad_impressions_ad_group_hour_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_ad_group_hour_adapter]
 }
 
-explore: ad_impressions_keyword {
+explore: ad_impressions_keyword_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_keyword_adapter]
   from: ad_impressions_keyword
@@ -96,11 +110,13 @@ explore: ad_impressions_keyword {
   view_label: "Impressions by Keyword"
 }
 
-view: ad_impressions_keyword {
+view: ad_impressions_keyword_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_keyword_adapter]
 }
 
-explore: ad_impressions_ad {
+explore: ad_impressions_ad_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_ad_adapter]
   from: ad_impressions_ad
@@ -110,11 +126,13 @@ explore: ad_impressions_ad {
   view_label: "Impressions by Ad"
 }
 
-view: ad_impressions_ad {
+view: ad_impressions_ad_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_ad_adapter]
 }
 
-explore: ad_impressions_geo {
+explore: ad_impressions_geo_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_geo_adapter]
   from: ad_impressions_geo
@@ -124,7 +142,8 @@ explore: ad_impressions_geo {
   view_label: "Impressions by Geo"
 }
 
-view: ad_impressions_geo {
+view: ad_impressions_geo_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_geo_adapter]
 
   measure: average_click_rate {
@@ -158,7 +177,8 @@ view: ad_impressions_geo {
   }
 }
 
-explore: ad_impressions_age_range {
+explore: ad_impressions_age_range_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_age_range_adapter]
   from: ad_impressions_age_range
@@ -168,11 +188,13 @@ explore: ad_impressions_age_range {
   view_label: "Impressions by Age Range"
 }
 
-view: ad_impressions_age_range {
+view: ad_impressions_age_range_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_age_range_adapter]
 }
 
-explore: ad_impressions_gender {
+explore: ad_impressions_gender_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_gender_adapter]
   from: ad_impressions_gender
@@ -182,11 +204,13 @@ explore: ad_impressions_gender {
   view_label: "Impressions by Gender"
 }
 
-view: ad_impressions_gender {
+view: ad_impressions_gender_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_gender_adapter]
 }
 
-explore: ad_impressions_audience {
+explore: ad_impressions_audience_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_audience_adapter]
   from: ad_impressions_audience
@@ -196,11 +220,13 @@ explore: ad_impressions_audience {
   view_label: "Impressions by Audience"
 }
 
-view: ad_impressions_audience {
+view: ad_impressions_audience_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_audience_adapter]
 }
 
-explore: ad_impressions_parental_status {
+explore: ad_impressions_parental_status_template {
+  extension: required
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_parental_status_adapter]
   from: ad_impressions_parental_status
@@ -210,12 +236,14 @@ explore: ad_impressions_parental_status {
   view_label: "Impressions by Parental Status"
 }
 
-view: ad_impressions_parental_status {
+view: ad_impressions_parental_status_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_parental_status_adapter]
 }
 
-explore: ad_impressions_video {
+explore: ad_impressions_video_template {
   persist_with: adwords_etl_datagroup
+  extension: required
   extends: [ad_impressions_video_adapter]
   from: ad_impressions_video
   view_name: fact
@@ -224,6 +252,7 @@ explore: ad_impressions_video {
   view_label: "Impressions by Video"
 }
 
-view: ad_impressions_video {
+view: ad_impressions_video_template {
+  extension: required
   extends: [ad_impressions_base, ad_impressions_video_adapter]
 }

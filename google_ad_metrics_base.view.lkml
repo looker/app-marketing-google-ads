@@ -14,7 +14,7 @@ view: google_ad_metrics_dimension_base {
   }
 }
 
-view: google_ad_metrics_base {
+view: google_ad_metrics_base_template {
   extension: required
   extends: [ad_metrics_base, google_ad_metrics_dimension_base]
 
