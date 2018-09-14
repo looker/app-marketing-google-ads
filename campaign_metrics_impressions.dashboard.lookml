@@ -1,6 +1,6 @@
 - dashboard: campaign_metrics__impressions
   title: Campaign Metrics - Impressions
-  extends: campaign_metrics_base
+  extends: google_ads_base
   elements:
   - title: Impressions To Date
     name: Impressions To Date
@@ -193,6 +193,7 @@
     focus_on_hover: false
     hidden_fields: []
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -210,7 +211,7 @@
     - fact.device_type
     - fact.total_impressions
     filters:
-      fact.total_cost: ">0"
+      fact.total_impressions: ">0"
     limit: 500
     stacking: ''
     show_value_labels: true
@@ -271,6 +272,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -349,6 +351,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -429,6 +432,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -445,8 +449,6 @@
     fields:
     - geo_us_state.state
     - fact.total_impressions
-    filters:
-      fact.period: 28 day
     limit: 500
     map_plot_mode: points
     heatmap_gridlines: false
@@ -482,8 +484,10 @@
     - "#FCF758"
     - "#4FBC89"
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
+      Period: fact.period
       Period Latest: fact.date_period_latest
     row: 10
     col: 8
@@ -598,6 +602,7 @@
       __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
       __LINE_NUM: 507
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -723,6 +728,7 @@
     - "#f1e582"
     series_colors: {}
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -846,6 +852,7 @@
       __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
       __LINE_NUM: 1123
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -947,6 +954,7 @@
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -1048,6 +1056,7 @@
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -1166,6 +1175,7 @@
     - last_fact.total_cost
     - last_fact.impressions_period_percent_change_abs
     listen:
+      Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
@@ -1174,44 +1184,3 @@
     col: 16
     width: 8
     height: 10
-  filters:
-  - name: Campaign
-    title: Campaign
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: campaign.name
-  - name: Ad Group
-    title: Ad Group
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: ad_group.ad_group_name
-  - name: Period
-    title: Period
-    type: field_filter
-    default_value: 28 day
-    allow_multiple_values: true
-    required: true
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: fact.period
-  - name: Period Latest
-    title: Period Latest
-    type: field_filter
-    default_value: 'Yes'
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: period_fact
-    listens_to_filters: []
-    field: fact.date_period_latest
