@@ -987,10 +987,6 @@
     fields:
     - fact.average_click_rate
     - geo_us_state.state
-    filters:
-      fact.period: 28 day
-      ad_group.ad_group_name: ''
-      campaign.name: ''
     sorts:
     - fact.average_click_rate desc
     limit: 500
