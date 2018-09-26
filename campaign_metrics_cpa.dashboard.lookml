@@ -951,8 +951,7 @@
     - "#a6b7ff"
     - "#afe8fd"
     - "#ea989"
-    series_colors:
-      last_fact.average_cost_per_conversion: "#f1cc9a"
+    series_colors: {}
     y_axes:
     - label: ''
       maxValue:

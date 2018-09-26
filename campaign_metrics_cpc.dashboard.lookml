@@ -1050,9 +1050,7 @@
     - "#a6b7ff"
     - "#afe8fd"
     - "#ea989"
-    series_colors:
-      fact.cost_per_conversion_last_month: "#f1cc9a"
-      last_fact.average_cost_per_click: "#f1cc9a"
+    series_colors: {}
     y_axes:
     - label: ''
       maxValue:
