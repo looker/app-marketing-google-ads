@@ -22,6 +22,12 @@ explore: account_date_fact {
     sql_on: ${fact.date_period} = ${total.date_period} ;;
     relationship: many_to_one
   }
+  join: last_total {
+    from: date_fact
+    view_label: "Total This Period"
+    sql_on: ${fact.date_last_period} = ${total.date_period} ;;
+    relationship: many_to_one
+  }
 }
 
 view: account_key_base {

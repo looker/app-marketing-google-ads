@@ -12,7 +12,7 @@ view: date_fact {
       column: impressions { field: fact.total_impressions}
       column: interactions {field: fact.total_interactions}
       bind_filters: {
-        from_field: total.period
+        from_field: fact.period
         to_field: fact.period
       }
     }
@@ -25,47 +25,4 @@ view: date_fact {
     type: date
     convert_tz: no
   }
-
-  parameter: period {
-    description: "Prior Period for Comparison"
-    type: string
-    allowed_value: {
-      value: "day"
-      label: "Day"
-    }
-    allowed_value: {
-      value: "week"
-      label: "Week (Mon - Sun)"
-    }
-    allowed_value: {
-      value: "month"
-      label: "Month"
-    }
-    allowed_value: {
-      value: "quarter"
-      label: "Quarter"
-    }
-    allowed_value: {
-      value: "year"
-      label: "Year"
-    }
-    allowed_value: {
-      value: "7 day"
-      label: "Last 7 Days"
-    }
-    allowed_value: {
-      value: "28 day"
-      label: "Last 28 Days"
-    }
-    allowed_value: {
-      value: "91 day"
-      label: "Last 91 Days"
-    }
-    allowed_value: {
-      value: "364 day"
-      label: "Last 364 Days"
-    }
-    default_value: "28 day"
-  }
-
 }

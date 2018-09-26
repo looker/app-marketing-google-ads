@@ -843,18 +843,22 @@
     col: 14
     width: 10
     height: 6
-  - title: Top Ads by Spend
-    name: Top Ads by Spend
+  - title: Ad Spend Change
+    name: Ad Spend Change
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
     fields:
-    - ad.creative
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - ad.creative
     - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_cost_period_delta
     sorts:
-    - fact.total_cost desc
+    - fact.total_cost_period_delta_abs desc
+    filters:
+      fact.total_cost_period_delta_abs: ">0"
     limit: 50
     stacking: ''
     show_value_labels: true
@@ -895,6 +899,7 @@
     hidden_fields:
     - campaign.name
     - ad_group.ad_group_name
+    - fact.total_cost_period_delta
     y_axes:
     - label: ''
       maxValue:
@@ -919,16 +924,16 @@
     colors:
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    - "#ea989"
     series_colors: {}
     listen:
       Account: customer.account_descriptive_name
@@ -940,18 +945,22 @@
     col: 0
     width: 12
     height: 7
-  - title: Top Keywords by Spend
-    name: Top Keywords by Spend
+  - title: Keyword Spend Change
+    name: Keyword Spend Change
     model: marketing_analytics
     explore: period_fact
     type: looker_column
     fields:
-    - ad_group.ad_group_name
     - campaign.name
-    - fact.total_cost
+    - ad_group.ad_group_name
     - keyword.criteria
+    - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_cost_period_delta
     sorts:
-    - fact.total_cost desc
+    - fact.total_cost_period_delta_abs desc
+    filters:
+      fact.total_cost_period_delta_abs: ">0"
     limit: 50
     stacking: ''
     show_value_labels: true
@@ -992,19 +1001,20 @@
     hidden_fields:
     - ad_group.ad_group_name
     - campaign.name
+    - fact.total_cost_period_delta
     colors:
-    - "#ea9895"
+    - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    - "#ea989"
     series_colors: {}
     y_axes:
     - label: ''
@@ -1036,18 +1046,22 @@
     col: 12
     width: 12
     height: 14
-  - title: Top Landing Pages by Spend
-    name: Top Landing Pages by Spend
+  - title: Landing Page Spend Change
+    name: Landing Page Spend Change
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
     fields:
-    - ad.creative_final_urls_domain_path
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - ad.creative_final_urls_domain_path
     - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_cost_period_delta
     sorts:
-    - fact.total_cost desc
+    - fact.total_cost_period_delta_abs desc
+    filters:
+      fact.total_cost_period_delta_abs: ">0"
     limit: 50
     stacking: ''
     show_value_labels: true
@@ -1088,19 +1102,20 @@
     hidden_fields:
     - ad_group.ad_group_name
     - campaign.name
+    - fact.total_cost_period_delta
     colors:
-    - "#f1e582"
+    - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    - "#ea989"
     series_colors: {}
     y_axes:
     - label: ''

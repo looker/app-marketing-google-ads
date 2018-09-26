@@ -55,14 +55,13 @@ view: google_ad_metrics_base_template {
     value_format_name: decimal_0
   }
 
-  measure: total_impressions {
-  }
-  measure: total_clicks {
-  }
+  measure: total_impressions {}
+  measure: total_clicks {}
   measure: total_conversions {
     drill_fields: [fact.date_date, campaign.name, fact.total_conversions]
   }
   measure: total_cost {
     drill_fields: [fact.date_date, campaign.name, fact.total_cost]
   }
+  measure: total_conversionvalue {}
 }

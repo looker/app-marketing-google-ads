@@ -765,6 +765,8 @@
     - fact.average_conversion_rate_period_percent_change
     sorts:
     - fact.average_conversion_rate_period_percent_change_abs desc
+    filters:
+      fact.average_conversion_rate_period_percent_change_abs: NOT NULL
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -808,16 +810,16 @@
     colors:
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    - "#ea989"
     series_colors: {}
     limit_displayed_rows_values:
       show_hide: show
@@ -878,6 +880,8 @@
     - fact.average_conversion_rate_period_percent_change
     sorts:
     - fact.average_conversion_rate_period_percent_change_abs desc
+    filters:
+      fact.average_conversion_rate_period_percent_change_abs: NOT NULL
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -926,19 +930,17 @@
     colors:
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors:
-      fact.conversion_rate_this_month: "#d06180"
-      fact.conversion_rate_last_month: "#ea9895"
+    - "#ea989"
+    series_colors: {}
     y_axes:
     - label: ''
       maxValue:

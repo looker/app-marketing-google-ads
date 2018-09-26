@@ -798,18 +798,24 @@
     col: 14
     width: 10
     height: 7
-  - title: Top Ads by Conversions
-    name: Top Ads by Conversions
+  - title: Creative Conversions Change
+    name: Creative Conversions Change
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
     fields:
-    - ad.creative
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - ad.creative
+    - fact.total_cost
     - fact.total_conversions
+    - last_fact.total_cost
+    - last_fact.total_conversions
+    - fact.total_conversions_period_delta
     sorts:
-    - fact.total_conversions desc
+    - fact.total_conversions_period_delta_abs desc
+    filters:
+      fact.total_conversions_period_delta_abs: ">0"
     limit: 50
     column_limit: 50
     stacking: ''
@@ -847,10 +853,13 @@
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
-      num_rows: '7'
+      num_rows: '10'
     hidden_fields:
     - campaign.name
     - ad_group.ad_group_name
+    - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_conversions_period_delta
     y_axes:
     - label: ''
       maxValue:
@@ -864,27 +873,20 @@
       unpinAxis: false
       valueFormat:
       series:
-      - id: fact.total_conversions
-        name: Conversions
-        axisId: fact.total_conversions
-        __FILE: app_marketing_analytics/campaign_metrics_conversions.dashboard.lookml
-        __LINE_NUM: 910
-      __FILE: app_marketing_analytics/campaign_metrics_conversions.dashboard.lookml
-      __LINE_NUM: 898
     hide_legend: false
     colors:
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    - "#ea989"
     series_colors: {}
     listen:
       Account: customer.account_descriptive_name
@@ -896,18 +898,24 @@
     col: 0
     width: 12
     height: 7
-  - title: Top Landing Pages by Conversions
-    name: Top Landing Pages by Conversions
+  - title: Landing Pages Conversions Change
+    name: Landing Pages Conversions Change
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
     fields:
-    - ad.creative_final_urls_domain_path
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - ad.creative_final_urls_domain_path
+    - fact.total_cost
     - fact.total_conversions
+    - last_fact.total_cost
+    - last_fact.total_conversions
+    - fact.total_conversions_period_delta
     sorts:
-    - fact.total_conversions desc
+    - fact.total_conversions_period_delta_abs desc
+    filters:
+      fact.total_conversions_period_delta_abs: ">0"
     limit: 50
     column_limit: 50
     stacking: ''
@@ -945,23 +953,26 @@
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
-      num_rows: '7'
+      num_rows: '10'
     hidden_fields:
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_conversions_period_delta
     colors:
-    - "#f1e582"
+    - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    - "#ea989"
     series_colors: {}
     y_axes:
     - label: ''
@@ -976,13 +987,6 @@
       unpinAxis: false
       valueFormat:
       series:
-      - id: fact.total_conversions
-        name: Conversions
-        axisId: fact.total_conversions
-        __FILE: app_marketing_analytics/campaign_metrics_conversions.dashboard.lookml
-        __LINE_NUM: 1021
-      __FILE: app_marketing_analytics/campaign_metrics_conversions.dashboard.lookml
-      __LINE_NUM: 1009
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name
@@ -993,26 +997,32 @@
     col: 0
     width: 12
     height: 7
-  - title: Top Keywords by Conversions
-    name: Top Keywords by Conversions
+  - title: Ad Group Conversions Change
+    name: Ad Group Conversions Change
     model: marketing_analytics
     explore: period_fact
-    type: looker_column
+    type: looker_bar
     fields:
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
     - keyword.criteria
+    - fact.total_cost
     - fact.total_conversions
+    - last_fact.total_cost
+    - last_fact.total_conversions
+    - fact.total_conversions_period_delta
     sorts:
-    - fact.total_conversions desc
-    limit: 50
+    - fact.total_conversions_period_delta_abs desc
+    filters:
+      fact.total_conversions_period_delta_abs: ">0"
+    limit: 500
     column_limit: 50
     stacking: ''
     show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
+    y_axis_gridlines: false
     show_view_names: false
     limit_displayed_rows: true
     y_axis_combined: true
@@ -1029,43 +1039,23 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    query_timezone: America/Los_Angeles
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: gray
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
     series_types: {}
+    hidden_fields:
+    - campaign.name
+    - ad_group.ad_group_name
+    - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_conversions_period_delta
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
-      num_rows: '7'
-    hidden_fields:
-    - ad_group.ad_group_name
-    - campaign.name
-    colors:
-    - "#ea9895"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
+      num_rows: '10'
     y_axes:
     - label: ''
       maxValue:
       minValue:
-      orientation: left
-      showLabels: false
+      orientation: bottom
+      showLabels: true
       showValues: false
       tickDensity: default
       tickDensityCustom:
@@ -1073,13 +1063,22 @@
       unpinAxis: false
       valueFormat:
       series:
-      - id: fact.total_conversions
-        name: Conversions
-        axisId: fact.total_conversions
-        __FILE: app_marketing_analytics/campaign_metrics_conversions.dashboard.lookml
-        __LINE_NUM: 1117
-      __FILE: app_marketing_analytics/campaign_metrics_conversions.dashboard.lookml
-      __LINE_NUM: 1105
+    series_colors: {}
+    colors:
+    - "#a6b7ff"
+    - "#7869df"
+    - "#ea9895"
+    - "#d06180"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    x_axis_reversed: false
+    y_axis_reversed: false
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name

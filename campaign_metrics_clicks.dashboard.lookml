@@ -723,14 +723,15 @@
     fields:
     - ad_group.ad_group_name
     - campaign.name
-    - fact.average_cost_per_click
     - fact.total_cost
+    - fact.total_clicks
     - last_fact.total_cost
     - last_fact.total_clicks
-    - fact.total_clicks
-    - last_fact.clicks_percent_change_abs
+    - fact.total_clicks_period_delta
     sorts:
-    - last_fact.clicks_percent_change_abs desc
+    - fact.total_clicks_period_delta_abs desc
+    filters:
+      fact.total_clicks_period_delta_abs: ">0"
     limit: 500
     column_limit: 50
     stacking: ''
@@ -760,8 +761,7 @@
     - campaign.name
     - fact.total_cost
     - last_fact.total_cost
-    - last_fact.clicks_percent_change_abs
-    - fact.average_cost_per_click
+    - fact.total_clicks_period_delta
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -827,12 +827,14 @@
     - ad_group.ad_group_name
     - campaign.name
     - fact.total_cost
+    - fact.total_clicks
     - last_fact.total_cost
     - last_fact.total_clicks
-    - fact.total_clicks
-    - fact.clicks_percent_change_abs
+    - fact.total_clicks_period_delta
     sorts:
-    - fact.clicks_percent_change_abs desc
+    - fact.total_clicks_period_delta_abs desc
+    filters:
+      fact.total_clicks_period_delta_abs: ">0"
     limit: 500
     column_limit: 50
     stacking: ''
@@ -863,7 +865,7 @@
     - ad_group.ad_group_name
     - fact.total_cost
     - last_fact.total_cost
-    - fact.clicks_percent_change_abs
+    - fact.total_clicks_period_delta
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -895,10 +897,10 @@
       __LINE_NUM: 912
     series_colors: {}
     colors:
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"
@@ -929,22 +931,22 @@
     - ad_group.ad_group_name
     - campaign.name
     - fact.total_cost
+    - fact.total_clicks
     - last_fact.total_cost
     - last_fact.total_clicks
-    - fact.total_clicks
-    - fact.clicks_percent_change_abs
+    - fact.total_clicks_period_delta
     sorts:
-    - fact.clicks_percent_change_abs desc
+    - fact.total_clicks_period_delta_abs desc
+    filters:
+      fact.total_clicks_period_delta_abs: ">0"
     limit: 50
     column_limit: 50
     stacking: ''
     colors:
-    - "#dc9d4f"
-    - "#dc9d4f"
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"
@@ -960,10 +962,7 @@
     y_axis_gridlines: false
     show_view_names: false
     point_style: none
-    series_colors:
-      fact.cost_per_conversion_last_month: "#f1cc9a"
-      last_fact.average_cost_per_click: "#f1cc9a"
-      last_fact.total_clicks: "#f1cc9a"
+    series_colors: {}
     series_types: {}
     limit_displayed_rows: true
     limit_displayed_rows_values:
@@ -1026,7 +1025,7 @@
     - campaign.name
     - fact.total_cost
     - last_fact.total_cost
-    - fact.clicks_percent_change_abs
+    - fact.total_clicks_period_delta
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name

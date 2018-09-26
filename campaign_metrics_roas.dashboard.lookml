@@ -711,8 +711,8 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
     - fact.average_value_per_cost
     - fact.total_conversionvalue
     - fact.total_cost
@@ -721,7 +721,9 @@
     - last_fact.total_cost
     - fact.average_value_per_cost_period_percent_change
     sorts:
-    - fact.average_value_per_cost_percent_change_abs desc
+    - fact.average_value_per_cost_period_percent_change_abs desc
+    filters:
+      fact.average_value_per_cost_period_percent_change_abs: NOT NULL
     limit: 500
     column_limit: 50
     stacking: ''
@@ -809,9 +811,9 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - keyword.criteria
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - keyword.criteria
     - fact.total_conversionvalue
     - fact.total_cost
     - last_fact.average_value_per_cost
@@ -819,7 +821,9 @@
     - last_fact.total_cost
     - fact.average_value_per_cost_period_percent_change
     sorts:
-    - fact.average_value_per_cost_percent_change_abs desc
+    - fact.average_value_per_cost_period_percent_change_abs desc
+    filters:
+      fact.average_value_per_cost_period_percent_change_abs: NOT NULL
     limit: 500
     column_limit: 50
     stacking: ''
@@ -878,10 +882,10 @@
         axisId: fact.average_value_per_cost
     series_colors: {}
     colors:
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"
@@ -908,9 +912,9 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - ad.creative
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - ad.creative
     - fact.total_conversionvalue
     - fact.total_cost
     - last_fact.average_value_per_cost
@@ -918,7 +922,9 @@
     - last_fact.total_cost
     - fact.average_value_per_cost_period_percent_change
     sorts:
-    - fact.average_value_per_cost_percent_change_abs desc
+    - fact.average_value_per_cost_period_percent_change_abs desc
+    filters:
+      fact.average_value_per_cost_period_percent_change_abs: NOT NULL
     limit: 50
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -966,12 +972,10 @@
       first_last: first
       num_rows: '10'
     colors:
-    - "#ecc899"
-    - "#dc9d4f"
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"

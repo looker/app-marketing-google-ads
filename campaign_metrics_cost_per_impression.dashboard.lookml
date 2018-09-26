@@ -868,13 +868,15 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - ad_group.ad_group_name
     - campaign.name
-    - last_fact.average_cost_per_impression
+    - ad_group.ad_group_name
     - fact.average_cost_per_impression
-    - fact.cost_per_impression_period_percent_change_abs
+    - last_fact.average_cost_per_impression
+    - fact.average_cost_per_impression_period_percent_change
     sorts:
-    - fact.cost_per_impression_period_percent_change_abs desc
+    - fact.average_cost_per_impression_period_percent_change_abs desc
+    filters:
+      fact.average_cost_per_impression_period_percent_change_abs: NOT NULL
     limit: 500
     column_limit: 50
     stacking: ''
@@ -902,8 +904,7 @@
     series_types: {}
     hidden_fields:
     - campaign.name
-    - last_fact.impressions_percent_change_abs
-    - fact.cost_per_impression_period_percent_change_abs
+    - fact.average_cost_per_impression_period_percent_change
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -965,14 +966,16 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - keyword.criteria
-    - ad_group.ad_group_name
     - campaign.name
-    - fact.cost_per_impression_period_percent_change_abs
-    - last_fact.average_cost_per_impression
+    - ad_group.ad_group_name
+    - keyword.criteria
     - fact.average_cost_per_impression
+    - last_fact.average_cost_per_impression
+    - fact.average_cost_per_impression_period_percent_change
     sorts:
-    - fact.cost_per_impression_period_percent_change_abs desc
+    - fact.average_cost_per_impression_period_percent_change_abs desc
+    filters:
+      fact.average_cost_per_impression_period_percent_change_abs: NOT NULL
     limit: 500
     column_limit: 50
     stacking: ''
@@ -1001,8 +1004,7 @@
     hidden_fields:
     - campaign.name
     - ad_group.ad_group_name
-    - last_fact.impressions_percent_change_abs
-    - fact.cost_per_impression_period_percent_change_abs
+    - fact.average_cost_per_impression_period_percent_change
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -1034,10 +1036,10 @@
       __LINE_NUM: 1010
     series_colors: {}
     colors:
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"
@@ -1064,24 +1066,24 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - ad.creative
-    - ad_group.ad_group_name
     - campaign.name
-    - last_fact.average_cost_per_impression
+    - ad_group.ad_group_name
+    - ad.creative
     - fact.average_cost_per_impression
-    - fact.cost_per_impression_period_percent_change_abs
+    - last_fact.average_cost_per_impression
+    - fact.average_cost_per_impression_period_percent_change
     sorts:
-    - fact.cost_per_impression_period_percent_change_abs desc
+    - fact.average_cost_per_impression_period_percent_change_abs desc
+    filters:
+      fact.average_cost_per_impression_period_percent_change_abs: NOT NULL
     limit: 50
     column_limit: 50
     stacking: ''
     colors:
-    - "#dc9d4f"
-    - "#dc9d4f"
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"
@@ -1097,12 +1099,7 @@
     y_axis_gridlines: false
     show_view_names: false
     point_style: none
-    series_colors:
-      fact.cost_per_conversion_last_month: "#f1cc9a"
-      last_fact.average_cost_per_click: "#f1cc9a"
-      last_fact.total_clicks: "#f1cc9a"
-      last_fact.total_impressions: "#f1cc9a"
-      last_fact.average_cost_per_impression: "#f1cc9a"
+    series_colors: {}
     series_types: {}
     limit_displayed_rows: true
     limit_displayed_rows_values:
@@ -1163,8 +1160,7 @@
     hidden_fields:
     - ad_group.ad_group_name
     - campaign.name
-    - last_fact.impressions_percent_change_abs
-    - fact.cost_per_impression_period_percent_change_abs
+    - fact.average_cost_per_impression_period_percent_change
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name
