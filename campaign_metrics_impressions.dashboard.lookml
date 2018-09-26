@@ -1,4 +1,4 @@
-- dashboard: campaign_metrics__impressions
+- dashboard: campaign_metrics_impressions
   title: Campaign Metrics - Impressions
   extends: google_ads_base
   elements:

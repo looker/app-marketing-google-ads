@@ -1,4 +1,4 @@
-- dashboard: campaign_metrics__cost_per_impression
+- dashboard: campaign_metrics_cost_per_impression
   title: Campaign Metrics - Cost Per Impression
   extends: google_ads_base
   elements:
