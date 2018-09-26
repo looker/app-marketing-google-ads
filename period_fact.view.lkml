@@ -42,10 +42,22 @@ explore: period_fact {
       {% endif %} ;;
     relationship: many_to_one
   }
+  join: total {
+    from: date_fact
+    view_label: "Total This Period"
+    sql_on: ${fact.date_period} = ${total.date_period} ;;
+    relationship: many_to_one
+  }
+  join: last_total {
+    from: date_fact
+    view_label: "Total This Period"
+    sql_on: ${fact.date_last_period} = ${last_total.date_period} ;;
+    relationship: many_to_one
+  }
 }
 
 view: period_fact {
-  extends: [date_base, period_base, ad_metrics_period_comparison_base, ad_metrics_parent_comparison_base, google_ad_metrics_base]
+  extends: [date_base, period_base, ad_metrics_period_comparison_base, ad_metrics_weighted_period_comparison_base, ad_metrics_parent_comparison_base, google_ad_metrics_base]
 
   dimension: external_customer_id {
     hidden: yes

@@ -867,16 +867,18 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
     - fact.average_cost_per_click
     - fact.total_cost
+    - fact.total_impressions
     - last_fact.total_cost
     - last_fact.total_impressions
-    - fact.total_impressions
-    - last_fact.impressions_period_percent_change_abs
+    - fact.total_impressions_period_delta
     sorts:
-    - last_fact.impressions_period_percent_change_abs desc
+    - fact.total_impressions_period_delta_abs desc
+    filters:
+      fact.total_impressions_period_delta_abs: ">0"
     limit: 500
     column_limit: 50
     stacking: ''
@@ -907,7 +909,7 @@
     - fact.total_cost
     - last_fact.total_cost
     - fact.average_cost_per_click
-    - last_fact.impressions_period_percent_change_abs
+    - fact.total_impressions_period_delta
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -973,12 +975,14 @@
     - ad_group.ad_group_name
     - campaign.name
     - fact.total_cost
+    - fact.total_impressions
     - last_fact.total_cost
     - last_fact.total_impressions
-    - fact.total_impressions
-    - last_fact.impressions_period_percent_change_abs
+    - fact.total_impressions_period_delta
     sorts:
-    - last_fact.impressions_period_percent_change_abs desc
+    - fact.total_impressions_period_delta_abs desc
+    filters:
+      fact.total_impressions_period_delta_abs: ">0"
     limit: 500
     column_limit: 50
     stacking: ''
@@ -1009,7 +1013,7 @@
     - ad_group.ad_group_name
     - fact.total_cost
     - last_fact.total_cost
-    - last_fact.impressions_period_percent_change_abs
+    - fact.total_impressions_period_delta
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
@@ -1041,10 +1045,10 @@
       __LINE_NUM: 865
     series_colors: {}
     colors:
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"
@@ -1071,26 +1075,26 @@
     explore: period_fact
     type: looker_bar
     fields:
-    - ad.creative
-    - ad_group.ad_group_name
     - campaign.name
+    - ad_group.ad_group_name
+    - ad.creative
     - fact.total_cost
-    - last_fact.total_cost
-    - last_fact.impressions_period_percent_change_abs
-    - last_fact.total_impressions
     - fact.total_impressions
+    - last_fact.total_cost
+    - last_fact.total_impressions
+    - fact.total_impressions_period_delta
     sorts:
-    - last_fact.impressions_period_percent_change_abs desc
+    - fact.total_impressions_period_delta_abs desc
+    filters:
+      fact.total_impressions_period_delta_abs: ">0"
     limit: 50
     column_limit: 50
     stacking: ''
     colors:
-    - "#dc9d4f"
-    - "#dc9d4f"
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
     - "#dc9d4f"
@@ -1106,11 +1110,7 @@
     y_axis_gridlines: false
     show_view_names: false
     point_style: none
-    series_colors:
-      fact.cost_per_conversion_last_month: "#f1cc9a"
-      last_fact.average_cost_per_click: "#f1cc9a"
-      last_fact.total_clicks: "#f1cc9a"
-      last_fact.total_impressions: "#f1cc9a"
+    series_colors: {}
     series_types: {}
     limit_displayed_rows: true
     limit_displayed_rows_values:
@@ -1130,18 +1130,6 @@
       unpinAxis: false
       valueFormat:
       series:
-      - id: fact.average_cost_per_click
-        name: Period Fact
-        axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
-        __LINE_NUM: 978
-      - id: last_fact.average_cost_per_click
-        name: Last Period Fact
-        axisId: last_fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
-        __LINE_NUM: 983
-      __FILE: app-marketing-google-ads/campaign_metrics_clicks.dashboard.lookml
-      __LINE_NUM: 966
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -1173,7 +1161,7 @@
     - campaign.name
     - fact.total_cost
     - last_fact.total_cost
-    - last_fact.impressions_period_percent_change_abs
+    - fact.total_impressions_period_delta
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name
