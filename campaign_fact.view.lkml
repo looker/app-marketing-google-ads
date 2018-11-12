@@ -37,8 +37,14 @@ view: campaign_key_base {
 
   dimension: campaign_key_base {
     hidden: yes
-    sql: CONCAT(${account_key_base}, "-", CAST(${campaign_id} as STRING)) ;;
+    sql:
+      {% if _dialect._name == 'snowflake' %}
+        ${account_key_base} || '-' || TO_CHAR(${campaign_id})
+      {% else %}
+        CONCAT(${account_key_base}, "-", CAST(${campaign_id} as STRING))
+      {% endif %} ;;
   }
+
   dimension: key_base {
     hidden: yes
     sql: ${campaign_key_base} ;;

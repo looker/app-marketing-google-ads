@@ -76,7 +76,12 @@ view: period_fact {
   }
   dimension: _date {
     type: date_raw
-    sql: CAST(${TABLE}._date AS DATE) ;;
+    sql:
+      {% if _dialect._name == 'snowflake' %}
+        TO_DATE(${TABLE}._date)
+      {% else %}
+        CAST(${TABLE}._date AS DATE)
+      {% endif %} ;;
   }
 
   sql_table_name:
@@ -113,6 +118,11 @@ view: period_fact {
   dimension: primary_key {
     primary_key: yes
     hidden: yes
-    sql: concat(CAST(${date_period} as STRING), CAST(${date_day_of_period} as STRING), ${key_base}) ;;
+    sql:
+      {% if _dialect._name == 'snowflake' %}
+        TO_CHAR(${date_period}) || '-' || TO_CHAR(${date_day_of_period}) || '-' ||  ${key_base}
+      {% else %}
+        concat(CAST(${date_period} as STRING), CAST(${date_day_of_period} as STRING), ${key_base})
+      {% endif %} ;;
   }
 }

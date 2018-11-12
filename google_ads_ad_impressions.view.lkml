@@ -48,7 +48,12 @@ view: google_ads_ad_impressions {
   dimension: ad_group_name {}
   dimension: cross_channel_ad_group_key_base {
     hidden: yes
-    sql: concat(${channel}, ${account_id}, ${campaign_id}, ${ad_group_id}) ;;
+    sql:
+      {% if _dialect._name == 'snowflake' %}
+        ${channel} || '-' || TO_CHAR(${account_id})  || '-' || TO_CHAR(${campaign_id}) || '-' || TO_CHAR(${ad_group_id})
+      {% else %}
+        concat(${channel}, ${account_id}, ${campaign_id}, ${ad_group_id})
+      {% endif %} ;;
   }
   dimension: key_base {
     hidden: yes
