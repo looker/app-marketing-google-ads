@@ -100,20 +100,36 @@ view: period_fact {
   dimension: key_base {
     hidden: yes
     sql:
-      CONCAT(
-      CAST(${external_customer_id} AS STRING)
-    {% if (campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
-      ,"-", CAST(${campaign_id} AS STRING)
-    {% endif %}
-    {% if (ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
-      ,"-", CAST(${ad_group_id} AS STRING)
-    {% endif %}
-    {% if (ad._in_query or fact.creative_id._in_query) %}
-      ,"-", CAST(${creative_id} AS STRING)
-    {% elsif (keyword._in_query or fact.criterion_id._in_query) %}
-      ,"-", CAST(${criterion_id} AS STRING)
-    {% endif %}
-    ) ;;
+      {% if _dialect._name == 'snowflake' %}
+        TO_CHAR(${external_customer_id})
+          {% if (campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
+            || '-' || TO_CHAR(${campaign_id})
+          {% endif %}
+          {% if (ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
+            || '-' || TO_CHAR(${ad_group_id})
+          {% endif %}
+          {% if (ad._in_query or fact.creative_id._in_query) %}
+            || '-' || TO_CHAR(${creative_id})
+          {% elsif (keyword._in_query or fact.criterion_id._in_query) %}
+            || '-' || TO_CHAR(${criterion_id})
+          {% endif %}
+      {% else %}
+        CONCAT(
+        CAST(${external_customer_id} AS STRING)
+          {% if (campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
+            ,"-", CAST(${campaign_id} AS STRING)
+          {% endif %}
+          {% if (ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
+            ,"-", CAST(${ad_group_id} AS STRING)
+          {% endif %}
+          {% if (ad._in_query or fact.creative_id._in_query) %}
+            ,"-", CAST(${creative_id} AS STRING)
+          {% elsif (keyword._in_query or fact.criterion_id._in_query) %}
+            ,"-", CAST(${criterion_id} AS STRING)
+          {% endif %}
+        )
+          {% endif %}
+       ;;
   }
   dimension: primary_key {
     primary_key: yes
