@@ -90,7 +90,12 @@ view: campaign_budget_date_fact {
   measure: count_constrained_budget_days {
     type: count_distinct
     description: "Days with daily spend within 20% of campaign budget"
-    sql:  CONCAT(CAST(${date_raw} as STRING), CAST(${budget_id} as STRING))  ;;
+    sql:
+      {% if _dialect._name == 'snowflake' %}
+        TO_CHAR(${date_raw}) || '-' || TO_CHAR(${budget_id})
+      {% else %}
+        CONCAT(CAST(${date_raw} as STRING), CAST(${budget_id} as STRING))
+      {% endif %} ;;
     filters: {
       field: constrained_budget
       value: "yes"

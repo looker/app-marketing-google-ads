@@ -36,7 +36,12 @@ view: account_key_base {
 
   dimension: account_key_base {
     hidden: yes
-    sql: CAST(${external_customer_id} AS STRING) ;;
+    sql:
+      {% if _dialect._name == 'snowflake' %}
+        TO_CHAR(${external_customer_id})
+      {% else %}
+        CAST(${external_customer_id} AS STRING)
+      {% endif %} ;;
   }
   dimension: key_base {
     hidden: yes
@@ -67,7 +72,12 @@ view: account_date_fact {
   dimension: _date {
     hidden: yes
     type: date_raw
-    sql: CAST(${TABLE}._date AS DATE) ;;
+    sql:
+      {% if _dialect._name == 'snowflake' %}
+        TO_DATE(${TABLE}._date)
+      {% else %}
+        CAST(${TABLE}._date AS DATE)
+      {% endif %} ;;
   }
   set: detail {
     fields: [external_customer_id]
