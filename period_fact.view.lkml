@@ -15,11 +15,14 @@ explore: period_fact {
       AND ${fact.date_day_of_period} = ${last_fact.date_day_of_period}
       {% if (ad._in_query or fact.creative_id._in_query) %}
         AND ${fact.creative_id} = ${last_fact.creative_id}
-      {% elsif (keyword._in_query or fact.criterion_id._in_query) %}
+      {% endif %}
+      {% if (keyword._in_query or fact.criterion_id._in_query) or (ad._in_query or fact.creative_id._in_query) %}
         AND ${fact.criterion_id} = ${last_fact.criterion_id}
-      {% elsif (ad_group._in_query or fact.ad_group_id._in_query) or (ad._in_query or fact.creative_id._in_query) or (keyword._in_query or fact.criterion_id._in_query) %}
+      {% endif %}
+      {% if (ad_group._in_query or fact.ad_group_id._in_query) or (ad._in_query or fact.creative_id._in_query) or (keyword._in_query or fact.criterion_id._in_query) %}
         AND ${fact.ad_group_id} = ${last_fact.ad_group_id}
-      {% elsif (campaign._in_query or fact.campaign_id._in_query) or (ad_group._in_query or fact.ad_group_id._in_query) or (ad._in_query or fact.creative_id._in_query) or (keyword._in_query or fact.criterion_id._in_query) %}
+      {% endif %}
+      {% if (campaign._in_query or fact.campaign_id._in_query) or (ad_group._in_query or fact.ad_group_id._in_query) or (ad._in_query or fact.creative_id._in_query) or (keyword._in_query or fact.criterion_id._in_query) %}
         AND ${fact.campaign_id} = ${last_fact.campaign_id}
       {% endif %}
       AND ${fact.external_customer_id} = ${last_fact.external_customer_id} ;;
