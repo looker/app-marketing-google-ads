@@ -159,7 +159,7 @@
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
+    y_axis_gridlines: false
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
@@ -236,7 +236,7 @@
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
+    y_axis_gridlines: false
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
@@ -317,7 +317,7 @@
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
+    y_axis_gridlines: false
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
@@ -441,7 +441,7 @@
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
+    y_axis_gridlines: false
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
@@ -567,7 +567,7 @@
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
+    y_axis_gridlines: false
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
