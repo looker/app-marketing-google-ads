@@ -116,6 +116,19 @@ view: period_fact {
           {% elsif (keyword._in_query or fact.criterion_id._in_query) %}
             || '-' || TO_CHAR(${criterion_id})
           {% endif %}
+      {% elsif _dialect._name == 'redshift' %}
+        CAST(${external_customer_id} AS VARCHAR)
+          {% if (campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
+            || '-' || CAST(${campaign_id} AS VARCHAR)
+          {% endif %}
+          {% if (ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.creative_id._in_query or keyword._in_query or fact.criterion_id._in_query) %}
+            || '-' || CAST(${ad_group_id} AS VARCHAR)
+          {% endif %}
+          {% if (ad._in_query or fact.creative_id._in_query) %}
+            '-' || CAST(${creative_id} AS VARCHAR)
+          {% elsif (keyword._in_query or fact.criterion_id._in_query) %}
+            || '-' || CAST(${criterion_id} AS VARCHAR)
+          {% endif %}
       {% else %}
         CONCAT(
         CAST(${external_customer_id} AS STRING)
@@ -140,6 +153,8 @@ view: period_fact {
     sql:
       {% if _dialect._name == 'snowflake' %}
         TO_CHAR(${date_period}) || '-' || TO_CHAR(${date_day_of_period}) || '-' ||  ${key_base}
+      {% elsif _dialect._name == 'redshift' %}
+        CAST(${date_period} as STRING) || '-' || CAST(${date_day_of_period} as STRING) || '-' ||  ${key_base}
       {% else %}
         concat(CAST(${date_period} as STRING), CAST(${date_day_of_period} as STRING), ${key_base})
       {% endif %} ;;

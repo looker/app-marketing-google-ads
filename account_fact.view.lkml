@@ -39,6 +39,8 @@ view: account_key_base {
     sql:
       {% if _dialect._name == 'snowflake' %}
         TO_CHAR(${external_customer_id})
+      {% elsif _dialect._name == 'redshift' %}
+        CAST(${external_customer_id} AS VARCHAR)
       {% else %}
         CAST(${external_customer_id} AS STRING)
       {% endif %} ;;

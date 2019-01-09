@@ -93,6 +93,8 @@ view: campaign_budget_date_fact {
     sql:
       {% if _dialect._name == 'snowflake' %}
         TO_CHAR(${date_raw}) || '-' || TO_CHAR(${budget_id})
+      {% elsif _dialect._name == 'redshift' %}
+        CAST(${date_raw} as VARCHAR) || '-' || CAST(${budget_id} AS VARCHAR)
       {% else %}
         CONCAT(CAST(${date_raw} as STRING), CAST(${budget_id} as STRING))
       {% endif %} ;;

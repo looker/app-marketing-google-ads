@@ -44,6 +44,8 @@ view: ad_group_key_base {
     sql:
       {% if _dialect._name == 'snowflake' %}
         ${campaign_key_base} || '-' || TO_CHAR(${ad_group_id})
+      {% elsif _dialect._name == 'redshift' %}
+        ${campaign_key_base} || '-' || CAST(${ad_group_id} AS VARCHAR)
       {% else %}
         CONCAT(${campaign_key_base}, "-", CAST(${ad_group_id} as STRING))
       {% endif %} ;;
