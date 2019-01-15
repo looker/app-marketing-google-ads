@@ -44,6 +44,8 @@ view: ad_group_key_base {
     sql:
       {% if _dialect._name == 'snowflake' %}
         ${campaign_key_base} || '-' || TO_CHAR(${ad_group_id})
+      {% elsif _dialect._name == 'redshift' %}
+        ${campaign_key_base} || '-' || CAST(${ad_group_id} AS VARCHAR)
       {% else %}
         CONCAT(${campaign_key_base}, "-", CAST(${ad_group_id} as STRING))
       {% endif %} ;;
@@ -61,7 +63,7 @@ view: ad_group_date_fact {
   derived_table: {
     datagroup_trigger: adwords_etl_datagroup
     explore_source: ad_impressions_ad_group {
-      column: _date { field: fact.date_date }
+      column: _date { field: fact.date_date}
       column: external_customer_id { field: fact.external_customer_id }
       column: campaign_id {field: fact.campaign_id}
       column: ad_group_id {field: fact.ad_group_id}
