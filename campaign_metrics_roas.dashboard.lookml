@@ -80,9 +80,9 @@
       - id: fact.average_cost_per_conversion
         name: Cost per Conversion
         axisId: fact.average_cost_per_conversion
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
         __LINE_NUM: 80
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
       __LINE_NUM: 68
     - label:
       maxValue:
@@ -99,10 +99,10 @@
       - id: fact.average_cost_per_click
         name: Cost per Click
         axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 95
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 83
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 99
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 87
     discontinuous_nulls: false
     focus_on_hover: false
     reference_lines: []
@@ -143,716 +143,6 @@
     col: 0
     width: 24
     height: 10
-  - title: Return On Ad Spend by Device
-    name: Return On Ad Spend by Device
-    model: marketing_analytics
-    explore: ad_impressions_ad_group
-    type: looker_bar
-    fields:
-    - fact.device_type
-    - fact.average_value_per_cost
-    fill_fields:
-    - fact.device_type
-    limit: 500
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    label_color: []
-    x_axis_label: Device
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Ad Stats Cost
-        axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 187
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 175
-    colors:
-    - "#d06180"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    listen:
-      Account: customer.account_descriptive_name
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 10
-    col: 0
-    width: 8
-    height: 4
-  - title: Return On Ad Spend by Bid Strategy
-    name: Return On Ad Spend by Bid Strategy
-    model: marketing_analytics
-    explore: ad_impressions_keyword
-    type: looker_bar
-    fields:
-    - keyword.bidding_strategy_type
-    - fact.average_value_per_cost
-    limit: 500
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    label_color: []
-    x_axis_label: Bid Strategy
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Ad Stats Cost
-        axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 260
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 248
-    colors:
-    - "#dc9d4f"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#d06180"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    listen:
-      Account: customer.account_descriptive_name
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 14
-    col: 0
-    width: 8
-    height: 4
-  - title: Return On Ad Spend by Day of Week
-    name: Return On Ad Spend by Day of Week
-    model: marketing_analytics
-    explore: period_fact
-    type: looker_bar
-    fields:
-    - fact.date_day_of_week
-    - fact.average_value_per_cost
-    fill_fields:
-    - fact.date_day_of_week
-    sorts:
-    - fact.date_day_of_week
-    limit: 500
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    enable_conditional_formatting: true
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    leftAxisLabelVisible: false
-    leftAxisLabel: ''
-    rightAxisLabelVisible: false
-    rightAxisLabel: ''
-    barColors:
-    - red
-    - blue
-    smoothedBars: false
-    orientation: automatic
-    labelPosition: left
-    percentType: total
-    percentPosition: inline
-    valuePosition: right
-    labelColorEnabled: false
-    labelColor: "#FFF"
-    groupBars: true
-    labelSize: 10pt
-    showLegend: true
-    series_types: {}
-    label_color: []
-    x_axis_label: ''
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Ad Stats Cost
-        axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 363
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 351
-    conditional_formatting:
-    - type: high to low
-      value:
-      background_color:
-      font_color:
-      palette:
-        name: Red to Yellow to Green
-        colors:
-        - "#F36254"
-        - "#FCF758"
-        - "#4FBC89"
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 372
-      bold: false
-      italic: false
-      strikethrough: false
-      fields:
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 367
-    colors:
-    - "#8ac8ca"
-    - "#7869df"
-    - "#6e98f9"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    listen:
-      Account: customer.account_descriptive_name
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 22
-    col: 14
-    width: 10
-    height: 6
-  - title: Return On Ad Spend by Hour of Day
-    name: Return On Ad Spend by Hour of Day
-    model: marketing_analytics
-    explore: ad_impressions_ad_group_hour
-    type: looker_column
-    fields:
-    - fact.hour_of_day
-    - fact.average_value_per_cost
-    sorts:
-    - fact.hour_of_day
-    limit: 500
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    enable_conditional_formatting: true
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    leftAxisLabelVisible: false
-    leftAxisLabel: ''
-    rightAxisLabelVisible: false
-    rightAxisLabel: ''
-    barColors:
-    - red
-    - blue
-    smoothedBars: false
-    orientation: automatic
-    labelPosition: left
-    percentType: total
-    percentPosition: inline
-    valuePosition: right
-    labelColorEnabled: false
-    labelColor: "#FFF"
-    groupBars: true
-    labelSize: 10pt
-    showLegend: true
-    series_types: {}
-    label_color: []
-    x_axis_label: Hour Of Day
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Ad Stats Cost
-        axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 479
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 467
-    conditional_formatting:
-    - type: high to low
-      value:
-      background_color:
-      font_color:
-      palette:
-        name: Red to Yellow to Green
-        colors:
-        - "#F36254"
-        - "#FCF758"
-        - "#4FBC89"
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 488
-      bold: false
-      italic: false
-      strikethrough: false
-      fields:
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 483
-    colors:
-    - "#8ac8ca"
-    - "#7869df"
-    - "#6e98f9"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    listen:
-      Account: customer.account_descriptive_name
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 28
-    col: 14
-    width: 10
-    height: 6
-  - title: Return On Ad Spend by Network
-    name: Return On Ad Spend by Network
-    model: marketing_analytics
-    explore: ad_impressions_ad_group
-    type: looker_bar
-    fields:
-    - fact.ad_network_type
-    - fact.average_value_per_cost
-    fill_fields:
-    - fact.ad_network_type
-    sorts:
-    - fact.ad_network_type
-    limit: 500
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    label_color: []
-    x_axis_label: Network
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_click
-        name: Ad Stats Cost
-        axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 682
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 670
-    colors:
-    - "#8ac8ca"
-    - "#7869df"
-    - "#6e98f9"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    listen:
-      Account: customer.account_descriptive_name
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 18
-    col: 0
-    width: 8
-    height: 4
-  - title: Keyword Return On Ad Spend Change
-    name: Keyword Return On Ad Spend Change
-    model: marketing_analytics
-    explore: period_fact
-    type: looker_bar
-    fields:
-    - campaign.name
-    - ad_group.ad_group_name
-    - keyword.criteria
-    - fact.total_conversionvalue
-    - fact.total_cost
-    - last_fact.average_value_per_cost
-    - last_fact.total_conversionvalue
-    - last_fact.total_cost
-    - fact.average_value_per_cost_period_percent_change
-    filters:
-      fact.average_value_per_cost_period_percent_change_abs: NOT NULL
-    sorts:
-    - fact.average_value_per_cost_period_percent_change_abs desc
-    limit: 500
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: true
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    hidden_fields:
-    - campaign.name
-    - ad_group.ad_group_name
-    - fact.total_conversionvalue
-    - fact.total_cost
-    - last_fact.total_conversionvalue
-    - last_fact.total_cost
-    - fact.average_value_per_cost_percent_change
-    limit_displayed_rows_values:
-      show_hide: show
-      first_last: first
-      num_rows: '10'
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: last_fact.average_value_per_cost
-        name: Prior Period
-        axisId: last_fact.average_value_per_cost
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 877
-      - id: fact.average_value_per_cost
-        name: This Period
-        axisId: fact.average_value_per_cost
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 880
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 865
-    series_colors: {}
-    colors:
-    - "#a6b7ff"
-    - "#7869df"
-    - "#ea9895"
-    - "#d06180"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Account: customer.account_descriptive_name
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 34
-    col: 8
-    width: 8
-    height: 9
-  - title: Ad Return On Ad Spend Change
-    name: Ad Return On Ad Spend Change
-    model: marketing_analytics
-    explore: period_fact
-    type: looker_bar
-    fields:
-    - campaign.name
-    - ad_group.ad_group_name
-    - ad.creative
-    - fact.total_conversionvalue
-    - fact.total_cost
-    - last_fact.average_value_per_cost
-    - last_fact.total_conversionvalue
-    - last_fact.total_cost
-    - fact.average_value_per_cost_period_percent_change
-    filters:
-      fact.average_value_per_cost_period_percent_change_abs: NOT NULL
-    sorts:
-    - fact.average_value_per_cost_period_percent_change_abs desc
-    limit: 50
-    column_limit: 50
-    query_timezone: America/Los_Angeles
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: true
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields:
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.total_conversionvalue
-    - fact.total_cost
-    - last_fact.total_conversionvalue
-    - last_fact.total_cost
-    - fact.average_value_per_cost_percent_change
-    series_types: {}
-    limit_displayed_rows_values:
-      show_hide: show
-      first_last: first
-      num_rows: '10'
-    colors:
-    - "#a6b7ff"
-    - "#7869df"
-    - "#ea9895"
-    - "#d06180"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
-    series_colors: {}
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: last_fact.average_value_per_cost
-        name: Prior Period
-        axisId: last_fact.average_value_per_cost
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 1001
-      - id: fact.average_value_per_cost
-        name: This Period
-        axisId: fact.average_value_per_cost
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 1004
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 989
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Account: customer.account_descriptive_name
-      Campaign: campaign.name
-      Ad Group: ad_group.ad_group_name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 34
-    col: 16
-    width: 8
-    height: 9
   - title: Return On Ad Spend By State
     name: Return On Ad Spend By State
     model: marketing_analytics
@@ -946,15 +236,15 @@
         - "#F36254"
         - "#FCF758"
         - "#4FBC89"
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 610
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 944
       bold: false
       italic: false
       strikethrough: false
       fields:
       - fact.average_value_per_cost
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 605
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 939
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     leftAxisLabelVisible: false
@@ -1014,10 +304,10 @@
       - id: fact.average_cost_per_click
         name: Ad Stats Cost
         axisId: fact.average_cost_per_click
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 601
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 589
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 1014
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 1002
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name
@@ -1100,15 +390,15 @@
       - id: last_fact.average_value_per_cost
         name: Prior Period
         axisId: last_fact.average_value_per_cost
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 776
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 1100
       - id: fact.average_value_per_cost
         name: This Period
         axisId: fact.average_value_per_cost
-        __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-        __LINE_NUM: 779
-      __FILE: app-marketing-google-ads/campaign_metrics_roas.dashboard.lookml
-      __LINE_NUM: 764
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 1105
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 1088
     series_colors: {}
     colors:
     - "#a6b7ff"
@@ -1135,3 +425,701 @@
     col: 0
     width: 8
     height: 9
+  - title: Return On Ad Spend by Bid Strategy
+    name: Return On Ad Spend by Bid Strategy
+    model: marketing_analytics
+    explore: ad_impressions_keyword
+    type: looker_bar
+    fields:
+    - keyword.bidding_strategy_type
+    - fact.average_value_per_cost
+    sorts:
+    - fact.average_value_per_cost desc
+    limit: 500
+    stacking: ''
+    colors:
+    - "#dc9d4f"
+    - "#7869df"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#d06180"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea9895"
+    - "#f1e582"
+    show_value_labels: true
+    label_density: 25
+    label_color: []
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    point_style: none
+    series_colors: {}
+    series_types: {}
+    limit_displayed_rows: false
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: fact.average_value_per_cost
+        name: ROAS
+        axisId: fact.average_value_per_cost
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    x_axis_label: Bid Strategy
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 14
+    col: 0
+    width: 8
+    height: 4
+  - title: Return On Ad Spend by Device
+    name: Return On Ad Spend by Device
+    model: marketing_analytics
+    explore: ad_impressions_ad_group
+    type: looker_bar
+    fields:
+    - fact.device_type
+    - fact.average_value_per_cost
+    fill_fields:
+    - fact.device_type
+    sorts:
+    - fact.average_value_per_cost desc
+    limit: 500
+    stacking: ''
+    colors:
+    - "#d06180"
+    - "#7869df"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea9895"
+    - "#f1e582"
+    show_value_labels: true
+    label_density: 25
+    label_color: []
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    point_style: none
+    series_colors: {}
+    series_types: {}
+    limit_displayed_rows: false
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: fact.average_value_per_cost
+        name: ROAS
+        axisId: fact.average_value_per_cost
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    x_axis_label: Device
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 10
+    col: 0
+    width: 8
+    height: 4
+  - title: Return On Ad Spend by Network
+    name: Return On Ad Spend by Network
+    model: marketing_analytics
+    explore: ad_impressions_ad_group
+    type: looker_bar
+    fields:
+    - fact.ad_network_type
+    - fact.average_value_per_cost
+    fill_fields:
+    - fact.ad_network_type
+    sorts:
+    - fact.average_value_per_cost desc
+    limit: 500
+    stacking: ''
+    colors:
+    - "#8ac8ca"
+    - "#7869df"
+    - "#6e98f9"
+    - "#d06180"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea9895"
+    - "#f1e582"
+    show_value_labels: true
+    label_density: 25
+    label_color: []
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    point_style: none
+    series_colors: {}
+    series_types: {}
+    limit_displayed_rows: false
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: fact.average_value_per_cost
+        name: ROAS
+        axisId: fact.average_value_per_cost
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    x_axis_label: Network
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 18
+    col: 0
+    width: 8
+    height: 4
+  - title: Return On Ad Spend by Hour of Day
+    name: Return On Ad Spend by Hour of Day
+    model: marketing_analytics
+    explore: ad_impressions_ad_group_hour
+    type: looker_column
+    fields:
+    - fact.hour_of_day
+    - fact.average_value_per_cost
+    sorts:
+    - fact.hour_of_day
+    limit: 500
+    stacking: ''
+    colors:
+    - "#8ac8ca"
+    - "#7869df"
+    - "#6e98f9"
+    - "#d06180"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea9895"
+    - "#f1e582"
+    show_value_labels: true
+    label_density: 25
+    label_color: []
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    point_style: none
+    series_colors: {}
+    series_types: {}
+    limit_displayed_rows: false
+    y_axes:
+    - label: ''
+      orientation: left
+      series:
+      - id: fact.average_value_per_cost
+        name: ROAS
+        axisId: fact.average_value_per_cost
+      showLabels: false
+      showValues: true
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Hour Of Day
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: true
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    leftAxisLabelVisible: false
+    leftAxisLabel: ''
+    rightAxisLabelVisible: false
+    rightAxisLabel: ''
+    barColors:
+    - red
+    - blue
+    smoothedBars: false
+    orientation: automatic
+    labelPosition: left
+    percentType: total
+    percentPosition: inline
+    valuePosition: right
+    labelColorEnabled: false
+    labelColor: "#FFF"
+    groupBars: true
+    labelSize: 10pt
+    showLegend: true
+    conditional_formatting:
+    - type: high to low
+      value:
+      background_color:
+      font_color:
+      palette:
+        name: Red to Yellow to Green
+        colors:
+        - "#F36254"
+        - "#FCF758"
+        - "#4FBC89"
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 516
+      bold: false
+      italic: false
+      strikethrough: false
+      fields:
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 511
+    listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 22
+    col: 14
+    width: 10
+    height: 6
+  - title: Keyword Return On Ad Spend Change
+    name: Keyword Return On Ad Spend Change
+    model: marketing_analytics
+    explore: period_fact
+    type: looker_bar
+    fields:
+    - campaign.name
+    - ad_group.ad_group_name
+    - keyword.criteria
+    - fact.total_conversionvalue
+    - fact.total_cost
+    - last_fact.average_value_per_cost
+    - last_fact.total_conversionvalue
+    - last_fact.total_cost
+    - fact.average_value_per_cost_period_percent_change
+    - fact.average_value_per_cost
+    filters:
+      fact.average_value_per_cost_period_percent_change_abs: NOT NULL
+    sorts:
+    - fact.average_value_per_cost_period_percent_change desc
+    limit: 500
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    limit_displayed_rows: true
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    hidden_fields:
+    - campaign.name
+    - ad_group.ad_group_name
+    - fact.total_conversionvalue
+    - fact.total_cost
+    - last_fact.total_conversionvalue
+    - last_fact.total_cost
+    - fact.average_value_per_cost_percent_change
+    - fact.average_value_per_cost_period_percent_change
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: bottom
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: last_fact.average_value_per_cost
+        name: Prior Period
+        axisId: last_fact.average_value_per_cost
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 702
+      - id: fact.average_value_per_cost
+        name: This Period
+        axisId: fact.average_value_per_cost
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 707
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 690
+    series_colors: {}
+    colors:
+    - "#a6b7ff"
+    - "#7869df"
+    - "#ea9895"
+    - "#d06180"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    x_axis_reversed: false
+    y_axis_reversed: false
+    listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 34
+    col: 8
+    width: 8
+    height: 9
+  - title: Ad Return On Ad Spend Change
+    name: Ad Return On Ad Spend Change
+    model: marketing_analytics
+    explore: period_fact
+    type: looker_bar
+    fields:
+    - campaign.name
+    - ad_group.ad_group_name
+    - ad.creative
+    - fact.total_conversionvalue
+    - fact.total_cost
+    - last_fact.average_value_per_cost
+    - last_fact.total_conversionvalue
+    - last_fact.total_cost
+    - fact.average_value_per_cost_period_percent_change
+    - fact.average_value_per_cost
+    filters:
+      fact.average_value_per_cost_period_percent_change_abs: NOT NULL
+    sorts:
+    - fact.average_value_per_cost_period_percent_change desc
+    limit: 50
+    column_limit: 50
+    query_timezone: America/Los_Angeles
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    limit_displayed_rows: true
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_fields:
+    - ad_group.ad_group_name
+    - campaign.name
+    - fact.total_conversionvalue
+    - fact.total_cost
+    - last_fact.total_conversionvalue
+    - last_fact.total_cost
+    - fact.average_value_per_cost_percent_change
+    - fact.average_value_per_cost_period_percent_change
+    series_types: {}
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
+    colors:
+    - "#a6b7ff"
+    - "#7869df"
+    - "#ea9895"
+    - "#d06180"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    series_colors: {}
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: bottom
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: last_fact.average_value_per_cost
+        name: Prior Period
+        axisId: last_fact.average_value_per_cost
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 832
+      - id: fact.average_value_per_cost
+        name: This Period
+        axisId: fact.average_value_per_cost
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 837
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 820
+    x_axis_reversed: false
+    y_axis_reversed: false
+    listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 34
+    col: 16
+    width: 8
+    height: 9
+  - title: Return On Ad Spend by Day of Week
+    name: Return On Ad Spend by Day of Week
+    model: marketing_analytics
+    explore: period_fact
+    type: looker_bar
+    fields:
+    - fact.date_day_of_week
+    - fact.average_value_per_cost
+    fill_fields:
+    - fact.date_day_of_week
+    sorts:
+    - fact.date_day_of_week
+    limit: 500
+    stacking: ''
+    colors:
+    - "#8ac8ca"
+    - "#7869df"
+    - "#6e98f9"
+    - "#d06180"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea9895"
+    - "#f1e582"
+    show_value_labels: true
+    label_density: 25
+    label_color: []
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    point_style: none
+    series_colors: {}
+    series_types: {}
+    limit_displayed_rows: false
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: fact.average_value_per_cost
+        name: ROAS
+        axisId: fact.average_value_per_cost
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    x_axis_label: ''
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: true
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    leftAxisLabelVisible: false
+    leftAxisLabel: ''
+    rightAxisLabelVisible: false
+    rightAxisLabel: ''
+    barColors:
+    - red
+    - blue
+    smoothedBars: false
+    orientation: automatic
+    labelPosition: left
+    percentType: total
+    percentPosition: inline
+    valuePosition: right
+    labelColorEnabled: false
+    labelColor: "#FFF"
+    groupBars: true
+    labelSize: 10pt
+    showLegend: true
+    conditional_formatting:
+    - type: high to low
+      value:
+      background_color:
+      font_color:
+      palette:
+        name: Red to Yellow to Green
+        colors:
+        - "#F36254"
+        - "#FCF758"
+        - "#4FBC89"
+        __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+        __LINE_NUM: 392
+      bold: false
+      italic: false
+      strikethrough: false
+      fields:
+      __FILE: 3d4d8a33c661890929b121b4e924d11766f9e0279cbfddc24f090a22687b12fe62cc2c14/campaign_metrics_roas.dashboard.lookml
+      __LINE_NUM: 387
+    listen:
+      Account: customer.account_descriptive_name
+      Campaign: campaign.name
+      Ad Group: ad_group.ad_group_name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 28
+    col: 14
+    width: 10
+    height: 6

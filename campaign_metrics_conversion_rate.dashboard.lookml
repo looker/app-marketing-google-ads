@@ -384,7 +384,7 @@
       __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
       __LINE_NUM: 362
     conditional_formatting:
-    - type: high to low
+    - type: low to high
       value:
       background_color:
       font_color:
@@ -1009,7 +1009,7 @@
     show_view_names: true
     show_legend: true
     quantize_map_value_colors: false
-    reverse_map_value_colors: false
+    reverse_map_value_colors: true
     map: usa
     map_projection: ''
     quantize_colors: false
