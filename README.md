@@ -62,9 +62,9 @@ For example:
 
 marketing_analytics.model.lkml
 ```LookML
-include: "//app-marketing-google-ads-adapter/*.view"
-include: "//app-marketing-google-ads/*.view"
-include: "//app-marketing-google-ads/*.dashboard"
+include: "/app-marketing-google-ads-adapter/*.view"
+include: "/app-marketing-google-ads/*.view"
+include: "/app-marketing-google-ads/*.dashboard"
 ```
 
 ### Interface
