@@ -6,11 +6,9 @@ explore: google_ads_ad_impressions {
 }
 
 view: google_ads_ad_impressions {
-  extends: [ad_metrics_base, date_base, period_base, date_primary_key_base]
+  extends: [ad_metrics_base, date_base, period_base, date_primary_key_base, pdt_base]
 
   derived_table: {
-    distribution: "_date"
-    sortkeys: ["_date"]
     datagroup_trigger: adwords_etl_datagroup
     explore_source: ad_impressions_ad_group {
       column: _date { field: fact.date_date }
@@ -26,6 +24,8 @@ view: google_ads_ad_impressions {
       column: clicks { field: fact.total_clicks }
       column: conversions { field: fact.total_conversions }
       column: conversionvalue { field: fact.total_conversionvalue }
+      column: _distribution {field: fact.date_raw}
+      column: _sortkey {field: fact.date_raw}
     }
   }
 
