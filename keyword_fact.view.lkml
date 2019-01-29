@@ -28,15 +28,6 @@ explore: keyword_date_fact {
       ${fact.date_date} = ${parent_fact.date_date} ;;
     relationship: one_to_one
   }
-  join: status_changes {
-    view_label: "Keywords"
-    sql_on: ${fact.external_customer_id} = ${status_changes.external_customer_id} AND
-      ${fact.campaign_id} = ${status_changes.campaign_id} AND
-      ${fact.ad_group_id} = ${status_changes.ad_group_id} AND
-      ${fact.criterion_id} = ${status_changes.criterion_id} AND
-      ${fact.date_date} = ${status_changes.date_date} ;;
-    relationship: one_to_many
-  }
 }
 
 view: keyword_key_base {
