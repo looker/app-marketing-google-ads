@@ -1,5 +1,5 @@
 include: "keyword_fact.view"
-include: "recent_changes.view"
+
 
 explore: ad_date_fact {
   persist_with: adwords_etl_datagroup
