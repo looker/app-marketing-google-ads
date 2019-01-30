@@ -1,5 +1,4 @@
 include: "campaign_fact.view"
-include: "recent_changes.view"
 
 explore: ad_group_date_fact {
   persist_with: adwords_etl_datagroup
