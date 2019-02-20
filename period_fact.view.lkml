@@ -53,7 +53,7 @@ explore: period_fact {
   }
   join: last_total {
     from: date_fact
-    view_label: "Total This Period"
+    view_label: "Total Last Period"
     sql_on: ${fact.date_last_period} = ${last_total.date_period} ;;
     relationship: many_to_one
   }
