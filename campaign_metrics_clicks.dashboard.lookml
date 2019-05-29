@@ -1,6 +1,6 @@
 - dashboard: campaign_metrics_clicks
   extends: google_ads_base
-  title: Campaign Metrics - Clicks
+  title: Google Adwords - Clicks
   layout: newspaper
   elements:
   - title: Clicks by Device
