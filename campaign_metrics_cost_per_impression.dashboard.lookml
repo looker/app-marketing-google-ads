@@ -1,5 +1,5 @@
 - dashboard: campaign_metrics_cost_per_impression
-  title: Campaign Metrics - Cost Per Impression
+  title: Google Adwords - Cost Per Impression
   extends: google_ads_base
   elements:
   - title: Cost Per Impression To Date

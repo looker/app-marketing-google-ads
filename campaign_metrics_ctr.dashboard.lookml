@@ -1,6 +1,6 @@
 - dashboard: campaign_metrics_click_through_rate
   extends: google_ads_base
-  title: Campaign Metrics - Click Through Rate
+  title: Google Adwords - Click Through Rate
   elements:
   - title: Click Through Rate To Date
     name: Click Through Rate To Date

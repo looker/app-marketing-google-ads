@@ -1,6 +1,6 @@
 - dashboard: campaign_metrics_cost_per_click
   extends: google_ads_base
-  title: Campaign Metrics - Cost Per Click
+  title: Google Adwords - Cost Per Click
   elements:
   - title: Cost Per Click To Date
     name: Cost Per Click To Date
