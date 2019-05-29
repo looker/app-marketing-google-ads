@@ -1,5 +1,5 @@
 - dashboard: campaign_metrics_roas
-  title: Campaign Metrics - Return On Ad Spend
+  title: Google Adwords - Return On Ad Spend
   extends: google_ads_base
   elements:
   - title: Return On Ad Spend To Date

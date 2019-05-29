@@ -1,6 +1,6 @@
 - dashboard: campaign_metrics_conversion_rate
   extends: google_ads_base
-  title: Campaign Metrics - Conversion Rate
+  title: Google Adwords - Conversion Rate
   elements:
   - title: Conversion Rate To Date
     name: Conversion Rate To Date

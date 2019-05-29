@@ -1,6 +1,6 @@
 - dashboard: campaign_metrics_cost_per_conversion
   extends: google_ads_base
-  title: Campaign Metrics - Cost Per Conversion
+  title: Google Adwords  - Cost Per Conversion
   elements:
   - title: Cost Per Conversion To Date
     name: Cost Per Conversion To Date
