@@ -1,5 +1,5 @@
 - dashboard: campaign_metrics_impressions
-  title: Campaign Metrics - Impressions
+  title: Google Adwords - Impressions
   extends: google_ads_base
   elements:
   - title: Impressions To Date

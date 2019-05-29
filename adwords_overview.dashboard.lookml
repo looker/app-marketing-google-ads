@@ -1,6 +1,6 @@
 - dashboard: adwords_overview
   extends: google_ads_base
-  title: AdWords Overview
+  title: Google AdWords Overview
   elements:
   - title: Conversion Trend
     name: Conversion Trend

@@ -1,6 +1,6 @@
 - dashboard: campaign_metrics_spend
   extends: google_ads_base
-  title: Campaign Metrics - Spend
+  title: Google Adwords - Spend
   elements:
   - title: Spend To Date
     name: Spend To Date
