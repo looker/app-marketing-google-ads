@@ -1,6 +1,6 @@
 # Google Ads
 
-LookML files for analysis of Google Ads. This is designed to work with a ETL and data warehouse adapter that will map the data schema e.g. [Fivetran BigQuery Facebook Ads](https://github.com/looker/app-marketing-google-ads-fivetran-bigquery).
+LookML files for analysis of Google Ads. This is designed to work with a ETL and data warehouse adapter that will map the data schema e.g. [Fivetran BigQuery Google Ads](https://github.com/looker/app-marketing-google-ads-fivetran-bigquery).
 
 ## To use this block, you will need to:
 
