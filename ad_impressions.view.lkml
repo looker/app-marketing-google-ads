@@ -19,20 +19,20 @@ view: ad_impressions_template {
   extends: [ad_impressions_base, ad_impressions_adapter]
 }
 
-explore: ad_impressions_hour_template {
+explore: ad_impressions_daily_template {
   extension: required
   persist_with: adwords_etl_datagroup
-  extends: [ad_impressions_hour_adapter, ]
-  from: ad_impressions_hour
+  extends: [ad_impressions_daily_adapter]
+  from: ad_impressions_daily
   view_name: fact
   group_label: "Google Ads"
-  label: "AdWord Impressions by Hour"
-  view_label: "Impressions by Hour"
+  label: "AdWord Impressions by Day"
+  view_label: "Impressions by Day"
 }
 
-view: ad_impressions_hour_template {
+view: ad_impressions_daily_template {
   extension: required
-  extends: [ad_impressions_base, ad_impressions_hour_adapter]
+  extends: [ad_impressions_base, ad_impressions_daily_adapter]
 }
 
 explore: ad_impressions_campaign_template {
@@ -51,20 +51,20 @@ view: ad_impressions_campaign_template {
   extends: [ad_impressions_base, ad_impressions_campaign_adapter]
 }
 
-explore: ad_impressions_campaign_hour_template {
+explore: ad_impressions_campaign_daily_template {
   extension: required
   persist_with: adwords_etl_datagroup
-  extends: [ad_impressions_campaign_hour_adapter]
-  from: ad_impressions_campaign_hour
+  extends: [ad_impressions_campaign_daily_adapter]
+  from: ad_impressions_campaign_daily
   view_name: fact
   group_label: "Google Ads"
-  label: "AdWord Impressions by Campaign & Hour"
-  view_label: "Impressions by Campaign & Hour"
+  label: "AdWord Impressions by Campaign"
+  view_label: "Impressions by Campaign"
 }
 
-view: ad_impressions_campaign_hour_template {
+view: ad_impressions_campaign_daily_template {
   extension: required
-  extends: [ad_impressions_base, ad_impressions_campaign_hour_adapter]
+  extends: [ad_impressions_base, ad_impressions_campaign_daily_adapter]
 }
 
 explore: ad_impressions_ad_group_template {
