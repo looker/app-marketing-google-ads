@@ -7,15 +7,9 @@
     model: marketing_analytics
     explore: period_fact
     type: looker_line
-    fields:
-    - fact.date_period_dynamic_grain
-    - fact.average_cost_per_conversion
-    - fact.average_conversion_rate
-    - fact.total_conversions
-    - fact.average_cost_per_click
-    - fact.average_click_rate
-    sorts:
-    - fact.date_period_dynamic_grain
+    fields: [fact.date_period_dynamic_grain, fact.average_cost_per_conversion, fact.average_conversion_rate,
+      fact.total_conversions, fact.average_cost_per_click, fact.average_click_rate]
+    sorts: [fact.date_period_dynamic_grain]
     limit: 500
     column_limit: 50
     stacking: ''
@@ -48,9 +42,7 @@
     leftAxisLabel: ''
     rightAxisLabelVisible: false
     rightAxisLabel: ''
-    barColors:
-    - red
-    - blue
+    barColors: [red, blue]
     smoothedBars: false
     orientation: automatic
     labelPosition: left
@@ -61,65 +53,21 @@
     labelColor: "#FFF"
     series_types: {}
     show_dropoff: false
-    y_axes:
-    - label:
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: true
-      showValues: true
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_cost_per_conversion
-        name: Cost per Conversion
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 77
-        axisId: fact.average_cost_per_conversion
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 65
-    - label:
-      maxValue:
-      minValue:
-      orientation: right
-      showLabels: true
-      showValues: true
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Conversion Rate
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 96
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 84
+    y_axes: [{label: !!null '', maxValue: !!null '', minValue: !!null '', orientation: left,
+        showLabels: true, showValues: true, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_cost_per_conversion,
+            name: Cost per Conversion, axisId: fact.average_cost_per_conversion}]},
+      {label: !!null '', maxValue: !!null '', minValue: !!null '', orientation: right,
+        showLabels: true, showValues: true, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Conversion Rate, axisId: fact.average_conversion_rate}]}]
     discontinuous_nulls: false
     focus_on_hover: false
     reference_lines: []
-    colors:
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    colors: ["#7869df", "#6e98f9", "#8ac8ca", "#d06180", "#dc9d4f", "#4bb86a", "#a4a6a9",
+      "#a6b7ff", "#afe8fd", "#ea9895", "#f1e582"]
     series_colors: {}
-    hidden_series:
-    - fact.total_conversions
-    - fact.average_cost_per_click
-    - fact.average_click_rate
+    hidden_series: [fact.total_conversions, fact.average_cost_per_click, fact.average_click_rate]
     hidden_fields: []
     column_group_spacing_ratio: 0
     column_spacing_ratio: 0
@@ -138,13 +86,10 @@
     model: marketing_analytics
     explore: ad_impressions_ad_group
     type: looker_bar
-    fields:
-    - fact.device_type
-    - fact.average_conversion_rate
+    fields: [fact.device_type, fact.average_conversion_rate]
     filters:
-     fact.average_conversion_rate: ">0"
-    sorts:
-    - fact.average_conversion_rate desc
+      fact.average_conversion_rate: ">0"
+    sorts: [fact.average_conversion_rate desc]
     limit: 500
     stacking: ''
     show_value_labels: true
@@ -171,38 +116,12 @@
     series_types: {}
     label_color: []
     x_axis_label: Device
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Ad Stats Conversion Rate
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 186
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 174
-    colors:
-    - "#d06180"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+        showLabels: false, showValues: false, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Ad Stats Conversion Rate, axisId: fact.average_conversion_rate}]}]
+    colors: ["#d06180", "#7869df", "#6e98f9", "#8ac8ca", "#dc9d4f", "#4bb86a", "#a4a6a9",
+      "#a6b7ff", "#afe8fd", "#ea9895", "#f1e582"]
     series_colors: {}
     listen:
       Account: customer.account_descriptive_name
@@ -213,19 +132,16 @@
     row: 11
     col: 0
     width: 8
-    height: 4
+    height: 5
   - title: Conversion Rate by Bid Strategy
     name: Conversion Rate by Bid Strategy
     model: marketing_analytics
     explore: ad_impressions_keyword
     type: looker_bar
-    fields:
-    - keyword.bidding_strategy_type
-    - fact.average_conversion_rate
+    fields: [keyword.bidding_strategy_type, fact.average_conversion_rate]
     filters:
-     fact.average_conversion_rate: ">0"
-    sorts:
-    - fact.average_conversion_rate desc
+      fact.average_conversion_rate: ">0"
+    sorts: [fact.average_conversion_rate desc]
     limit: 500
     stacking: ''
     show_value_labels: true
@@ -252,38 +168,12 @@
     series_types: {}
     label_color: []
     x_axis_label: Bid Strategy
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Ad Stats Conversion Rate
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 264
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 252
-    colors:
-    - "#dc9d4f"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#d06180"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+        showLabels: false, showValues: false, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Ad Stats Conversion Rate, axisId: fact.average_conversion_rate}]}]
+    colors: ["#dc9d4f", "#7869df", "#6e98f9", "#8ac8ca", "#d06180", "#4bb86a", "#a4a6a9",
+      "#a6b7ff", "#afe8fd", "#ea9895", "#f1e582"]
     series_colors: {}
     listen:
       Account: customer.account_descriptive_name
@@ -291,26 +181,19 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 15
+    row: 16
     col: 0
     width: 8
-    height: 4
+    height: 5
   - title: Conversion Rate by Day of Week and Hour of Day
     name: Conversion Rate by Day of Week and Hour of Day
     model: marketing_analytics
     explore: ad_impressions_ad_group_hour
     type: table
-    fields:
-    - fact.hour_of_day
-    - fact.date_day_of_week
-    - fact.average_conversion_rate
-    pivots:
-    - fact.date_day_of_week
-    fill_fields:
-    - fact.date_day_of_week
-    sorts:
-    - fact.date_day_of_week 0
-    - fact.hour_of_day
+    fields: [fact.hour_of_day, fact.date_day_of_week, fact.average_conversion_rate]
+    pivots: [fact.date_day_of_week]
+    fill_fields: [fact.date_day_of_week]
+    sorts: [fact.date_day_of_week 0, fact.hour_of_day]
     limit: 500
     show_view_names: false
     show_row_numbers: false
@@ -326,9 +209,7 @@
     leftAxisLabel: ''
     rightAxisLabelVisible: false
     rightAxisLabel: ''
-    barColors:
-    - red
-    - blue
+    barColors: [red, blue]
     smoothedBars: false
     orientation: automatic
     labelPosition: left
@@ -363,46 +244,14 @@
     series_types: {}
     label_color: []
     x_axis_label: Network
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.total_conversions
-        name: Ad Stats Cost
-        axisId: fact.total_conversions
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 374
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 362
-    conditional_formatting:
-    - type: low to high
-      value:
-      background_color:
-      font_color:
-      palette:
-        name: Red to Yellow to Green
-        colors:
-        - "#F36254"
-        - "#FCF758"
-        - "#4FBC89"
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 387
-      bold: false
-      italic: false
-      strikethrough: false
-      fields:
-      - fact.average_conversion_rate
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 382
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+        showLabels: false, showValues: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.total_conversions,
+            name: Ad Stats Cost, axisId: fact.total_conversions}]}]
+    conditional_formatting: [{type: low to high, value: !!null '', background_color: !!null '',
+        font_color: !!null '', palette: {name: Red to Yellow to Green, colors: ["#F36254",
+            "#FCF758", "#4FBC89"]}, bold: false, italic: false, strikethrough: false,
+        fields: [fact.average_conversion_rate]}]
     series_labels:
       fact.hour_of_day: Hour of Day
       fact.average_conversion_rate: "-"
@@ -413,22 +262,18 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 23
+    row: 26
     col: 0
     width: 14
-    height: 14
+    height: 12
   - title: Conversion Rate by Day of Week
     name: Conversion Rate by Day of Week
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
-    fields:
-    - fact.date_day_of_week
-    - fact.average_conversion_rate
-    fill_fields:
-    - fact.date_day_of_week
-    sorts:
-    - fact.date_day_of_week
+    fields: [fact.date_day_of_week, fact.average_conversion_rate]
+    fill_fields: [fact.date_day_of_week]
+    sorts: [fact.date_day_of_week]
     limit: 500
     stacking: ''
     show_value_labels: true
@@ -464,9 +309,7 @@
     leftAxisLabel: ''
     rightAxisLabelVisible: false
     rightAxisLabel: ''
-    barColors:
-    - red
-    - blue
+    barColors: [red, blue]
     smoothedBars: false
     orientation: automatic
     labelPosition: left
@@ -481,57 +324,16 @@
     series_types: {}
     label_color: []
     x_axis_label: ''
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Ad Stats Conversion Rate
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 491
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 479
-    conditional_formatting:
-    - type: high to low
-      value:
-      background_color:
-      font_color:
-      palette:
-        name: Red to Yellow to Green
-        colors:
-        - "#F36254"
-        - "#FCF758"
-        - "#4FBC89"
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 504
-      bold: false
-      italic: false
-      strikethrough: false
-      fields:
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 499
-    colors:
-    - "#8ac8ca"
-    - "#7869df"
-    - "#6e98f9"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+        showLabels: false, showValues: false, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Ad Stats Conversion Rate, axisId: fact.average_conversion_rate}]}]
+    conditional_formatting: [{type: high to low, value: !!null '', background_color: !!null '',
+        font_color: !!null '', palette: {name: Red to Yellow to Green, colors: ["#F36254",
+            "#FCF758", "#4FBC89"]}, bold: false, italic: false, strikethrough: false,
+        fields: !!null ''}]
+    colors: ["#8ac8ca", "#7869df", "#6e98f9", "#d06180", "#dc9d4f", "#4bb86a", "#a4a6a9",
+      "#a6b7ff", "#afe8fd", "#ea9895", "#f1e582"]
     series_colors: {}
     listen:
       Account: customer.account_descriptive_name
@@ -539,20 +341,17 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 23
+    row: 26
     col: 14
     width: 10
-    height: 7
+    height: 6
   - title: Conversion Rate by Hour of Day
     name: Conversion Rate by Hour of Day
     model: marketing_analytics
     explore: ad_impressions_ad_group_hour
     type: looker_column
-    fields:
-    - fact.hour_of_day
-    - fact.average_conversion_rate
-    sorts:
-    - fact.hour_of_day
+    fields: [fact.hour_of_day, fact.average_conversion_rate]
+    sorts: [fact.hour_of_day]
     limit: 500
     stacking: ''
     show_value_labels: true
@@ -588,9 +387,7 @@
     leftAxisLabel: ''
     rightAxisLabelVisible: false
     rightAxisLabel: ''
-    barColors:
-    - red
-    - blue
+    barColors: [red, blue]
     smoothedBars: false
     orientation: automatic
     labelPosition: left
@@ -605,57 +402,16 @@
     series_types: {}
     label_color: []
     x_axis_label: Hour Of Day
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Ad Stats Conversion Rate
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 614
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 602
-    conditional_formatting:
-    - type: high to low
-      value:
-      background_color:
-      font_color:
-      palette:
-        name: Red to Yellow to Green
-        colors:
-        - "#F36254"
-        - "#FCF758"
-        - "#4FBC89"
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 627
-      bold: false
-      italic: false
-      strikethrough: false
-      fields:
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 622
-    colors:
-    - "#8ac8ca"
-    - "#7869df"
-    - "#6e98f9"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: left,
+        showLabels: false, showValues: false, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Ad Stats Conversion Rate, axisId: fact.average_conversion_rate}]}]
+    conditional_formatting: [{type: high to low, value: !!null '', background_color: !!null '',
+        font_color: !!null '', palette: {name: Red to Yellow to Green, colors: ["#F36254",
+            "#FCF758", "#4FBC89"]}, bold: false, italic: false, strikethrough: false,
+        fields: !!null ''}]
+    colors: ["#8ac8ca", "#7869df", "#6e98f9", "#d06180", "#dc9d4f", "#4bb86a", "#a4a6a9",
+      "#a6b7ff", "#afe8fd", "#ea9895", "#f1e582"]
     series_colors: {}
     listen:
       Account: customer.account_descriptive_name
@@ -663,22 +419,19 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 30
+    row: 32
     col: 14
     width: 10
-    height: 7
+    height: 6
   - title: Conversion Rate by Network
     name: Conversion Rate by Network
     model: marketing_analytics
     explore: ad_impressions_ad_group
     type: looker_bar
-    fields:
-    - fact.ad_network_type
-    - fact.average_conversion_rate
+    fields: [fact.ad_network_type, fact.average_conversion_rate]
     filters:
-     fact.average_conversion_rate: ">0"
-    sorts:
-    - fact.ad_network_type
+      fact.average_conversion_rate: ">0"
+    sorts: [fact.ad_network_type]
     limit: 500
     stacking: ''
     show_value_labels: true
@@ -705,68 +458,34 @@
     series_types: {}
     label_color: []
     x_axis_label: Network
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Ad Stats Conversion Rate
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 713
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 701
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+        showLabels: false, showValues: false, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Ad Stats Conversion Rate, axisId: fact.average_conversion_rate}]}]
     series_colors: {}
-    colors:
-    - "#8ac8ca"
-    - "#7869df"
-    - "#6e98f9"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    colors: ["#8ac8ca", "#7869df", "#6e98f9", "#d06180", "#dc9d4f", "#4bb86a", "#a4a6a9",
+      "#a6b7ff", "#afe8fd", "#ea9895", "#f1e582"]
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 19
+    row: 21
     col: 0
     width: 8
-    height: 4
+    height: 5
   - title: Ad Group Conversion Rate Change
     name: Ad Group Conversion Rate Change
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
-    fields:
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.average_conversion_rate
-    - fact.total_conversions
-    - fact.total_clicks
-    - last_fact.average_conversion_rate
-    - last_fact.total_conversions
-    - last_fact.total_clicks
-    - fact.average_conversion_rate_period_percent_change
-    sorts:
-    - fact.average_conversion_rate_period_percent_change_abs desc
+    fields: [ad_group.ad_group_name, campaign.name, fact.average_conversion_rate,
+      fact.total_conversions, fact.total_clicks, last_fact.average_conversion_rate,
+      last_fact.total_conversions, last_fact.total_clicks, fact.average_conversion_rate_period_percent_change]
     filters:
       fact.average_conversion_rate_period_percent_change_abs: NOT NULL
+    sorts: [fact.average_conversion_rate_period_percent_change_abs desc]
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -799,57 +518,21 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    hidden_fields:
-    - campaign.name
-    - fact.total_conversions
-    - fact.total_clicks
-    - last_fact.total_conversions
-    - last_fact.total_clicks
-    - fact.average_conversion_rate_period_percent_change
+    hidden_fields: [campaign.name, fact.total_conversions, fact.total_clicks, last_fact.total_conversions,
+      last_fact.total_clicks, fact.average_conversion_rate_period_percent_change]
     series_types: {}
-    colors:
-    - "#a6b7ff"
-    - "#7869df"
-    - "#ea9895"
-    - "#d06180"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
+    colors: ["#a6b7ff", "#7869df", "#ea9895", "#d06180", "#6e98f9", "#8ac8ca", "#dc9d4f",
+      "#4bb86a", "#a4a6a9", "#a6b7ff", "#afe8fd", "#ea989"]
     series_colors: {}
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
       num_rows: '10'
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Period Fact
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 824
-      - id: last_fact.average_conversion_rate
-        name: Last Period Fact
-        axisId: last_fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 829
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 812
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+        showLabels: true, showValues: false, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Period Fact, axisId: fact.average_conversion_rate}, {id: last_fact.average_conversion_rate,
+            name: Last Period Fact, axisId: last_fact.average_conversion_rate}]}]
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
@@ -858,30 +541,21 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 37
+    row: 38
     col: 0
     width: 12
-    height: 10
+    height: 9
   - title: Keyword Conversion Rate Changes
     name: Keyword Conversion Rate Changes
     model: marketing_analytics
     explore: period_fact
     type: looker_bar
-    fields:
-    - keyword.criteria
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.average_conversion_rate
-    - fact.total_conversions
-    - fact.total_clicks
-    - last_fact.average_conversion_rate
-    - last_fact.total_conversions
-    - last_fact.total_clicks
-    - fact.average_conversion_rate_period_percent_change
-    sorts:
-    - fact.average_conversion_rate_period_percent_change_abs desc
+    fields: [keyword.criteria, ad_group.ad_group_name, campaign.name, fact.average_conversion_rate,
+      fact.total_conversions, fact.total_clicks, last_fact.average_conversion_rate,
+      last_fact.total_conversions, last_fact.total_clicks, fact.average_conversion_rate_period_percent_change]
     filters:
       fact.average_conversion_rate_period_percent_change_abs: NOT NULL
+    sorts: [fact.average_conversion_rate_period_percent_change_abs desc]
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -914,58 +588,21 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    hidden_fields:
-    - ad_group.ad_group_name
-    - campaign.name
-    - fact.total_conversions
-    - fact.total_clicks
-    - last_fact.total_conversions
-    - last_fact.total_clicks
-    - fact.average_conversion_rate_period_percent_change
+    hidden_fields: [ad_group.ad_group_name, campaign.name, fact.total_conversions,
+      fact.total_clicks, last_fact.total_conversions, last_fact.total_clicks, fact.average_conversion_rate_period_percent_change]
     series_types: {}
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
       num_rows: '10'
-    colors:
-    - "#a6b7ff"
-    - "#7869df"
-    - "#ea9895"
-    - "#d06180"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
+    colors: ["#a6b7ff", "#7869df", "#ea9895", "#d06180", "#6e98f9", "#8ac8ca", "#dc9d4f",
+      "#4bb86a", "#a4a6a9", "#a6b7ff", "#afe8fd", "#ea989"]
     series_colors: {}
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.average_conversion_rate
-        name: Period Fact
-        axisId: fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 933
-      - id: last_fact.average_conversion_rate
-        name: Last Period Fact
-        axisId: last_fact.average_conversion_rate
-        __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-        __LINE_NUM: 938
-      __FILE: app_marketing_analytics/campaign_metrics_conversion_rate.dashboard.lookml
-      __LINE_NUM: 921
+    y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+        showLabels: true, showValues: false, tickDensity: default, tickDensityCustom: !!null '',
+        type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: fact.average_conversion_rate,
+            name: Period Fact, axisId: fact.average_conversion_rate}, {id: last_fact.average_conversion_rate,
+            name: Last Period Fact, axisId: last_fact.average_conversion_rate}]}]
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
@@ -974,21 +611,19 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 37
+    row: 38
     col: 12
     width: 12
-    height: 10
+    height: 9
   - title: Conversion Rate By State
     name: Conversion Rate By State
     model: marketing_analytics
     explore: ad_impressions_geo
     type: looker_map
-    fields:
-    - geo_us_state.state
-    - fact.average_conversion_rate
-    sorts:
-    - fact.average_conversion_rate desc
+    fields: [geo_us_state.state, fact.average_conversion_rate]
+    sorts: [fact.average_conversion_rate desc]
     limit: 500
+    query_timezone: America/Los_Angeles
     map_plot_mode: points
     heatmap_gridlines: false
     heatmap_gridlines_empty: false
@@ -1013,15 +648,11 @@
     map: usa
     map_projection: ''
     quantize_colors: false
-    query_timezone: America/Los_Angeles
     series_types: {}
     map_latitude: 41.27780646738183
     map_longitude: -93.076171875
     map_zoom: 4
-    colors:
-    - "#F36254"
-    - "#FCF758"
-    - "#4FBC89"
+    colors: ["#F36254", "#FCF758", "#4FBC89"]
     listen:
       Account: customer.account_descriptive_name
       Campaign: campaign.name
@@ -1031,4 +662,4 @@
     row: 11
     col: 8
     width: 16
-    height: 12
+    height: 15
