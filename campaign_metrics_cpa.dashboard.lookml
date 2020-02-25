@@ -142,7 +142,7 @@
     row: 10
     col: 0
     width: 8
-    height: 4
+    height: 5
   - title: Cost Per Conversion by Bid Strategy
     name: Cost Per Conversion by Bid Strategy
     model: marketing_analytics
@@ -191,10 +191,10 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 14
+    row: 15
     col: 0
     width: 8
-    height: 4
+    height: 5
   - title: Cost Per Conversion by Hour of Day
     name: Cost Per Conversion by Hour of Day
     model: marketing_analytics
@@ -269,10 +269,10 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 29
+    row: 31
     col: 14
     width: 10
-    height: 7
+    height: 6
   - title: Cost Per Conversion by Day of Week
     name: Cost Per Conversion by Day of Week
     model: marketing_analytics
@@ -348,10 +348,10 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 22
+    row: 25
     col: 14
     width: 10
-    height: 7
+    height: 6
   - title: Cost Per Conversion by Network
     name: Cost Per Conversion by Network
     model: marketing_analytics
@@ -400,10 +400,10 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 18
+    row: 20
     col: 0
     width: 8
-    height: 4
+    height: 5
   - title: Ad Group Cost Per Conversion Change
     name: Ad Group Cost Per Conversion Change
     model: marketing_analytics
@@ -471,7 +471,7 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 36
+    row: 37
     col: 0
     width: 8
     height: 9
@@ -542,7 +542,7 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 36
+    row: 37
     col: 16
     width: 8
     height: 9
@@ -613,7 +613,7 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 36
+    row: 37
     col: 8
     width: 8
     height: 9
@@ -664,7 +664,7 @@
     row: 10
     col: 8
     width: 16
-    height: 12
+    height: 15
   - title: Cost Per Conversion by Day of Week and Hour of Day
     name: Cost Per Conversion by Day of Week and Hour of Day
     model: marketing_analytics
@@ -743,7 +743,7 @@
       Ad Group: ad_group.ad_group_name
       Period: fact.period
       Period Latest: fact.date_period_latest
-    row: 22
+    row: 25
     col: 0
     width: 14
-    height: 14
+    height: 12
