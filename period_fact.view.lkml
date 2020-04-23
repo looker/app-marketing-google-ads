@@ -4,7 +4,7 @@ explore: period_fact {
   hidden: yes
   from: period_fact
   view_name: fact
-  label: "Google Ads Period Comparison"
+  label: "Adwords Period Comparison"
   view_label: "This Period"
 
   join: last_fact {
