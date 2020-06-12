@@ -59,7 +59,7 @@ view: ad_group_date_fact {
       column: external_customer_id { field: fact.external_customer_id }
       column: campaign_id {field: fact.campaign_id}
       column: ad_group_id {field: fact.ad_group_id}
-      column: averageposition {field: fact.weighted_average_position}
+#       column: averageposition {field: fact.weighted_average_position}
       column: clicks {field: fact.total_clicks }
       column: conversions {field: fact.total_conversions}
       column: conversionvalue {field: fact.total_conversionvalue}

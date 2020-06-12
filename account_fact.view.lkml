@@ -59,7 +59,7 @@ view: account_date_fact {
     explore_source: ad_impressions {
       column: _date { field: fact.date_date }
       column: external_customer_id { field: fact.external_customer_id }
-      column: averageposition {field: fact.weighted_average_position}
+#       column: averageposition {field: fact.weighted_average_position}
       column: clicks {field: fact.total_clicks }
       column: conversions {field: fact.total_conversions}
       column: conversionvalue {field: fact.total_conversionvalue}

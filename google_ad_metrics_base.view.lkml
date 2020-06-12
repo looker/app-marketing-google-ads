@@ -7,11 +7,11 @@ view: google_ad_metrics_dimension_base {
     sql: ${TABLE}.Interactions ;;
   }
 
-  dimension: average_position {
-    hidden: yes
-    type: number
-    sql: ${TABLE}.AveragePosition ;;
-  }
+#   dimension: average_position {
+#     hidden: yes
+#     type: number
+#     sql: ${TABLE}.AveragePosition ;;
+#   }
 }
 
 view: google_ad_metrics_base_template {
@@ -38,13 +38,13 @@ view: google_ad_metrics_base_template {
     }
   }
 
-  measure: weighted_average_position {
-    label: "Average Position"
-    description: "Average auction position."
-    type: number
-    sql: SUM(${average_position}*${impressions}) / NULLIF(${total_impressions},0) ;;
-    value_format_name: decimal_1
-  }
+  # measure: weighted_average_position {
+  #   label: "Average Position"
+  #   description: "Average auction position."
+  #   type: number
+  #   sql: SUM(${average_position}*${impressions}) / NULLIF(${total_impressions},0) ;;
+  #   value_format_name: decimal_1
+  # }
 
   measure: total_interactions {
     label: "Interactions"
