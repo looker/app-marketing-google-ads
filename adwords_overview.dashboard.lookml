@@ -194,7 +194,7 @@
     model: marketing_analytics
     explore: period_fact
     type: table
-    fields: [campaign.name, fact.weighted_average_position, fact.total_cost, fact.total_conversions,
+    fields: [campaign.name, fact.total_cost, fact.total_conversions,
       fact.average_cost_per_conversion, fact.average_conversion_rate, fact.average_cost_per_click,
       fact.average_click_rate]
     sorts: [fact.total_cost desc]

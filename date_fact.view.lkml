@@ -4,7 +4,7 @@ view: date_fact {
   derived_table: {
     explore_source: ad_impressions {
       column: date_period { field: fact.date_period }
-      column: averageposition {field: fact.weighted_average_position}
+#       column: averageposition {field: fact.weighted_average_position}
       column: clicks {field: fact.total_clicks }
       column: conversions {field: fact.total_conversions}
       column: conversionvalue {field: fact.total_conversionvalue}
