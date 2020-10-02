@@ -62,7 +62,6 @@ view: keyword_date_fact {
       column: campaign_id {field: fact.campaign_id}
       column: ad_group_id {field: fact.ad_group_id}
       column: criterion_id {field: fact.criterion_id}
-      column: averageposition {field: fact.weighted_average_position}
       column: clicks {field: fact.total_clicks }
       column: conversions {field: fact.total_conversions}
       column: conversionvalue {field: fact.total_conversionvalue}
